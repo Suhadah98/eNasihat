@@ -10,4 +10,5 @@ class Simptom extends Model
     use HasFactory;
 
     protected $fillable = ['simptomID','simptom','kesID'];
+
 }

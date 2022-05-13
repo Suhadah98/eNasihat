@@ -10,4 +10,9 @@ class Kes extends Model
     use HasFactory;
 
     protected $fillable = ['nama_kes'];
+
+    public function simptoms()
+    {
+        return $this->hasMany(Simptom::class, 'kesID', 'simptomID');
+    }
 }

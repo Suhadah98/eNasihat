@@ -33,7 +33,7 @@
                 <td>{{$kes->kesID}}</td>
                 <td>{{$kes->nama_kes}}</td>
                 <td>
-                 <a href="/search/{{$kes->kesID}}" class="btn btn-sm btn-secondary">Simptom</a>
+                    <a href="{{ route('search', ['kesID' => $simptoms->kesID]) }}" class="btn btn-sm btn-secondary">Simptom</a>
                 </td>
               </tr>
               @endforeach
