@@ -9,6 +9,8 @@ class Kes extends Model
 {
     use HasFactory;
 
+    public $kes;
+
     protected $fillable = ['nama_kes'];
 
     public function simptoms()

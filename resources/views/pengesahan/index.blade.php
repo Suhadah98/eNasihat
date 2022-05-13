@@ -53,7 +53,7 @@
 
       <h2>Semakan Temujanji</h2>
 
-      
+
 
       <div class="table-responsive">
 
@@ -66,7 +66,7 @@
               <th scope="col">Tarikh</th>
               <th scope="col">Status</th>
               <th scope="col">Nama Kaunselor</th>
-              
+
             </tr>
           </thead>
           <tbody>
@@ -78,7 +78,7 @@
               <td>{{$temujanji->tarikh}}</td>
               <td>{{$temujanji->status}}</td>
               <td>{{$temujanji->nama_kaunselor}}</td>
-            
+
             </tr>
             @endforeach
           </tbody>
