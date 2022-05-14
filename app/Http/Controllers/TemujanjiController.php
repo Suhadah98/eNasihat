@@ -14,8 +14,11 @@ class TemujanjiController extends Controller
      */
     public function index()
     {
-        $temujanjis=Temujanji::latest()->get();
-        return view('temujanji.index',compact('temujanjis'));
+        $temujanjis=Temujanji::latest()->where('status','=',"-")->get();
+        //return view('temujanji.index',compact('temujanjis'));
+
+        $temujanjis1=Temujanji::latest()->where('status','=',"Sah")->get();
+        return view('temujanji.index',compact('temujanjis','temujanjis1'));
     }
 
     /**
