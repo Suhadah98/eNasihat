@@ -36,7 +36,8 @@
                                 <td>{{ $kes->kesID }}</td>
                                 <td>{{ $kes->nama_kes }}</td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-secondary">Simptom</a>
+                                    <a href="{{ route('search', ['kes' => $kes->kesID]) }}"
+                                        class="btn btn-sm btn-secondary">Simptom</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -54,18 +55,16 @@
                     <table class="table ">
                         <thead>
                             <tr>
-                                <th>Simptom ID</th>
+
                                 <th>Simptom</th>
-                                <th>Kes ID</th>
+
                             </tr>
                         </thead>
 
                         <tbody>
                             @foreach ($simptoms as $simptom)
                                 <tr>
-                                    <td>{{ $simptom->simptomID }}</td>
                                     <td>{{ $simptom->simptom }}</td>
-                                    <td>{{ $simptom->kesID }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
