@@ -16,7 +16,7 @@
           </button>
         </div>
       </div>
-      <h1>Membuat Temujanji</h1>
+      <h1>Kemaskini Temujanji</h1>
 
       <form action="" method="post">
         {{csrf_field() }}
@@ -24,7 +24,7 @@
         <div class="form-group">
           <label for="nama_klien">Nama Klien</label>
           <input type="text" id="nama_klien" name="nama_klien" class="form-control {{$errors->has('nama_klien') ?'is-invalid':''}}" value="{{ old('nama_klien',$temujanji->nama_klien) }}"/>
-       
+
           @if($errors->has('nama_klien'))
           <span class="help-block">
 
@@ -32,37 +32,37 @@
           </span>
 
           @endif
-        </div> 
+        </div>
 
         <div class="form-group">
           <label for="masalah">Masalah</label>
           <input type="text" id="masalah" name="masalah" class="form-control {{$errors->has('masalah') ?'is-invalid':''}}" value="{{old('masalah',$temujanji->masalah) }}"/>
-        
+
           @if($errors->has('masalah'))
           <span class="help-block">
             <strong>{{$errors->first('masalah')}}</strong>
           </span>
           @endif
-        </div> 
+        </div>
 
         <div class="form-group">
           <label for="tarikh">Tarikh</label>
           <input type="date" id="tarikh" name="tarikh" class="form-control" placeholder="YYYY-MM-DD" value="{{$temujanji->tarikh}}"/>
-        </div> 
+        </div>
 
         <div class="form-group">
           <label for="status">Status</label>
           <input type="text" id="status" name="status" class="form-control" value="{{$temujanji->status}}"/>
-        </div> 
+        </div>
         @php
 
-        dd($temujanji); 
+
         @endphp
 
         <div class="form-group">
           <label for="nama_kaunselor">Nama Kaunselor</label>
           <input type="text" id="nama_kaunselor" name="nama_kaunselor" class="form-control" value="{{$temujanji->nama_kaunselor}}"/>
-        </div> 
+        </div>
 
         <button class="btn btn-primary" type="submit"> Hantar </button>
         <a href="{{route('temujanji.index')}}" class="btn btn-secondary"> Kembali </a>

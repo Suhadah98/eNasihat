@@ -42,12 +42,6 @@
             <input type="password" class="form-control" id="password" name="password">
         </div>
 
-        <div class="invisible">
-            <label for="user_type">Klasifikasi pengguna</label>
-            <input type="text" class="form-control {{$errors->has('email') ?'is-invalid':''}}" id="user_type" name="user_type" value= "Kaunselor" readonly>
-        </div>
-
-
 
         <div class="form-group">
             <button style="cursor:pointer" type="submit" class="btn btn-primary">Mendaftar</button>

@@ -17,4 +17,9 @@ class Kes extends Model
     {
         return $this->hasMany(Simptom::class, 'kesID', 'simptomID');
     }
+    public function simptoms1()
+    {
+        return $this->hasMany(Simptom::class, 'kesID', 'solusiID');
+    }
+
 }

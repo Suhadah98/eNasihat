@@ -1,4 +1,4 @@
-@extends('layouts.Adminmain')
+@extends('layouts.main')
 
 @section('content')
 
@@ -9,7 +9,7 @@
                 <h1>Ruangan Solusi<h1>
             </div>
             <div class="col-md-4">
-                <form action="/search" method="get">
+                <form action="/searchklien" method="get">
                     <div class="input-group">
                         <input type="search" name="search" class="form-control">
                         <span class="input-group-prepend">
@@ -36,8 +36,12 @@
                                 <td>{{ $kes->kesID }}</td>
                                 <td>{{ $kes->nama_kes }}</td>
                                 <td>
-                                    <a href="{{ route('search', ['kes' => $kes->kesID]) }}"
+                                    <a href="{{ route('searchklien', ['kes' => $kes->kesID]) }}"
                                         class="btn btn-sm btn-secondary">Simptom dan Solusi</a>
+                                </td>
+                                <td>
+                                    <a href="{{ route('searchklien', ['kes' => $kes->kesID]) }}"
+                                        class="btn btn-sm btn-secondary">Disimpan</a>
                                 </td>
                             </tr>
                         @endforeach

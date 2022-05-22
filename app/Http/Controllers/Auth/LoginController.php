@@ -40,6 +40,7 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
+
         $input = $request->all();
         $this->validate($request,[
 
@@ -63,6 +64,7 @@ class LoginController extends Controller
             }
 
         }else{
+            dd("test");
             return redirect()->route('login')->with('error','Input proper email or password.');
         }
     }

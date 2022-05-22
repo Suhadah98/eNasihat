@@ -70,7 +70,7 @@
             </tr>
           </thead>
           <tbody>
-              @foreach($temujanjis as $temujanji)
+              @foreach($temujanjis1 as $temujanji)
             <tr>
               <td>{{$temujanji->id}}</td>
               <td>{{$temujanji->nama_klien}}</td>

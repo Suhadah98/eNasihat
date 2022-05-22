@@ -2,21 +2,21 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{route('temujanji.index')}}">
+            <a class="nav-link active" aria-current="page" href="{{route('pengesahan.index')}}">
               <span data-feather="home"></span>
-              Temujanji
+              Pengesahan
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{route('searchklien')}}">
-              <span data-feather="file"></span>
-              Ruangan Solusi
+          <a class="nav-link active" aria-current="page" href="{{route('daftar.create')}}">
+              <span data-feather="edit-2"></span>
+              Daftar kaunselor
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link active" aria-current="page" href="{{route('search')}}">
               <span data-feather="shopping-cart"></span>
-
+              Ruangan Solusi
             </a>
           </li>
 

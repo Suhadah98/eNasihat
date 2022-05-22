@@ -10,8 +10,11 @@ class PengesahanController extends Controller
     //
     public function index()
     {
-        $temujanjis=Temujanji::latest()->get();
-        return view('pengesahan.index',compact('temujanjis'));
+        $temujanjis=Temujanji::latest()->where('status','=',"-")->get();
+        //return view('pengesahan.index',compact('temujanjis'));
+
+        $temujanjis1=Temujanji::latest()->where('status','=',"Sah")->get();
+        return view('pengesahan.index',compact('temujanjis','temujanjis1'));
     }
 
     public function show(Temujanji $temujanji)
@@ -22,7 +25,7 @@ class PengesahanController extends Controller
     public function update(Request $request, Temujanji $temujanji)
     {
         $request->validate([
-            
+
             'status'=>'required',
             'nama_kaunselor'=>'required',
 

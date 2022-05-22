@@ -6,6 +6,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/kaunselor/home', [App\Http\Controllers\HomeController::class, 'kaunselorHome'])->name('kaunselor.home')->middleware('is_kaunselor');
+
+Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 
 Route::get('/daftar','App\Http\Controllers\DaftarKaunselorController@create')->name('daftar.create');
@@ -34,16 +39,13 @@ Route::get('/pengesahan/{temujanji}','App\Http\Controllers\PengesahanController@
 
 Route::get('/search','App\Http\Controllers\CarianController@search')->name('search');
 
+Route::get('/searchklien','App\Http\Controllers\CarianController@searchklien')->name('searchklien');
+
 Auth::routes();
 
 Route::get('/kaunselorlogin', 'App\Http\Controllers\SessionController@create')->name('kaunselorlogin.create');
 Route::post('/kaunselorlogin', 'App\Http\Controllers\SessionController@store')->name('kaunselorlogin.store');
 Route::get('/logout', 'App\Http\Controllers\SessionsController@destroy')->name('logout.destroy');
 
-Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/kaunselor/home', [App\Http\Controllers\HomeController::class, 'kaunselorHome'])->name('kaunselor.home')->middleware('is_kaunselor');
-
-Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 

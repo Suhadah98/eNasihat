@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -40,8 +41,8 @@ class DaftarKaunselorController extends Controller
 
             'name'=>request('name'),
             'email'=>request('email'),
-            'user_type'=>request('Kaunselor'),
-            'password'=>request('password'),
+            'user_type'=>'Kaunselor',
+            'password'=>Hash::make(request('password')),
 
         ]);
 
