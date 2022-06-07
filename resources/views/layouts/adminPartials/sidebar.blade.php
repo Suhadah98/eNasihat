@@ -19,6 +19,12 @@
               Ruangan Solusi
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route('kes.create')}}">
+              <span data-feather="shopping-cart"></span>
+              Penambahan Kes
+            </a>
+          </li>
 
         </ul>
       </div>

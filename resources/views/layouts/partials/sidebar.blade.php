@@ -14,9 +14,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link active" aria-current="page" href="{{route('simpan.index')}}">
               <span data-feather="shopping-cart"></span>
-
+              Ruang Simpanan
             </a>
           </li>
 

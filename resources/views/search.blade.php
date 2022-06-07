@@ -23,14 +23,16 @@
         <div class="card">
             <div class="card-header">Kes</div>
             <div class="card-body">
+                @if(isset($kes))
                 <table class="table table-striped table-sm">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">No ID</th>
                             <th scope="col">Kes</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @if(count($kes) > 0)
                         @foreach ($kes as $kes)
                             <tr>
                                 <td>{{ $kes->kesID }}</td>
@@ -41,9 +43,10 @@
                                 </td>
                             </tr>
                         @endforeach
-
+                        @endif
                     </tbody>
                 </table>
+                @endif
             </div>
         </div>
 

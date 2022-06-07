@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Temujanji;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class TemujanjiController extends Controller
@@ -14,10 +15,10 @@ class TemujanjiController extends Controller
      */
     public function index()
     {
-        $temujanjis=Temujanji::latest()->where('status','=',"-")->get();
+        $temujanjis=Temujanji::latest()->where('status','=',"-")->where('nama_klien','=',Auth::user()->name)->get();
         //return view('temujanji.index',compact('temujanjis'));
 
-        $temujanjis1=Temujanji::latest()->where('status','=',"Sah")->get();
+        $temujanjis1=Temujanji::latest()->where('status','=',"Sah")->where('nama_klien','=',Auth::user()->name)->get();
         return view('temujanji.index',compact('temujanjis','temujanjis1'));
     }
 

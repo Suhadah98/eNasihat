@@ -41,6 +41,18 @@ Route::get('/search','App\Http\Controllers\CarianController@search')->name('sear
 
 Route::get('/searchklien','App\Http\Controllers\CarianController@searchklien')->name('searchklien');
 
+Route::get('/simpan','App\Http\Controllers\CarianController@index')->name('simpan.index');
+
+Route::get('/simpan/create','App\Http\Controllers\CarianController@create')->name('simpan.create');
+
+Route::post('/simpan/create','App\Http\Controllers\CarianController@store')->name('simpan.store');
+
+Route::get('/kes/create','App\Http\Controllers\KesController@create')->name('kes.create');
+
+Route::post('/kes/create','App\Http\Controllers\KesController@store')->name('kes.store');
+
+
+
 Auth::routes();
 
 Route::get('/kaunselorlogin', 'App\Http\Controllers\SessionController@create')->name('kaunselorlogin.create');
