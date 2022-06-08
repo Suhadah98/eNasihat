@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Kes;
 use App\Models\Simptom;
+use App\Models\Solusi;
 use Illuminate\Http\Request;
 
 class KesController extends Controller
 {
 
+
     public function create()
     {
-        return view('kes.create');
+        $kes = Kes::all();
+        $simptoms = Simptom::all();
+        $solusis = Solusi::all();
+        return view('kes.create',compact('kes'));
     }
 
     /**
@@ -22,20 +27,49 @@ class KesController extends Controller
      */
     public function store(Request $request)
     {
+        switch ($request->input('action')) {
+            case 'simpankes':
+                $request->validate([
 
-        $request->validate([
+                    'nama_kes'=>'required',
+                ]);
 
-            'nama_kes'=>'required',
+                Kes::create([
 
-        ]);
+                    'nama_kes'=>request('nama_kes'),
+                ]);
 
-        Kes::create([
+                return redirect ()->route('kes.create')->with('success', 'Kes berjaya disimpan');;
+                break;
 
-            'nama_kes'=>request('nama_kes'),
-        ]);
+            case 'simpansimptom':
 
-        return redirect ()->route('kes.create');
+                $request->validate([
+
+                    'simptom'=>'required',
+                    'kesID'=>'required',
+                    'solusi'=>'required',
+
+                  ]);
+
+                  Simptom::create([
+
+                    'simptom'=>request('simptom'),
+                    'kesID'=>request('kesID'),
+
+                  ]);
+
+                  Solusi::create([
+
+                    'solusi'=>request('solusi'),
+                    'kesID'=>request('kesID'),
+                  ]);
+
+                  return redirect()->route('kes.create')->with('success', 'Selected Username added successfuly');
+                break;
+
+            case 'simpansolusi':
+                break;
+        }
     }
-
-
 }

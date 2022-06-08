@@ -39,7 +39,7 @@
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Simptom dan Solusi
                   </button>
-                  <a href="/temujanji/{{$simpan->id}}" class="btn btn-primary">Temujanji</a>
+                  <a href="/temujanji/{{$simpan->kesID}}" class="btn btn-primary">Temujanji</a>
               </td>
             </tr>
             @endforeach

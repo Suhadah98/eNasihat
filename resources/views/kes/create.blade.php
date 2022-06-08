@@ -16,9 +16,9 @@
           </button>
         </div>
       </div>
-      <h1>Penambahan Kes</h1>
+      <h2>Penambahan Kes</h2>
 
-      <form action="{{route('kes.create')}}" method="post">
+      <form action="" method="post">
         {{csrf_field() }}
 
         <div class="form-group">
@@ -31,30 +31,53 @@
           </span>
           @endif
         </div>
-    <br>
-        <button class="btn btn-primary" type="submit"> Hantar </button>
-
-
+        <br>
+        <button class="btn btn-primary" type="submit" name="action" value="simpankes"> Hantar </button>
       </form>
+
       <br>
-      <h1>Simptom</h1>
+      <h2>Simptom</h2>
 
       <form action="" method="post">
         {{csrf_field() }}
+
+
+        <div class="form-group">
+            <label for="Kes">Jenis Kes</label>
+            <select class="form-control" id="kesID" name="kesID" required focus>
+         <option value="" disabled selected>Sila Pilih Kes</option>
+         @foreach($kes as $kes)
+         <option value="{{$kes->kesID}}">{{ $kes->nama_kes }}</option>
+         @endforeach
+       </select>
+       </div>
+
 
         <div class="form-group">
           <label for="simptom">Simptom</label>
           <input type="text" id="simptom" name="simptom" class="form-control {{$errors->has('simptom') ?'is-invalid':''}}"/>
 
-          @if($errors->has('nama_kes'))
+          @if($errors->has('simptom'))
           <span class="help-block">
           <strong>{{$errors->first('simptom')}}</strong>
           </span>
           @endif
+
         </div>
 
+        <div class="form-group">
+            <label for="solusi">Solusi</label>
+            <input type="text" id="solusi" name="solusi" class="form-control {{$errors->has('solusi') ?'is-invalid':''}}"/>
+
+            @if($errors->has('solusi'))
+            <span class="help-block">
+            <strong>{{$errors->first('solusi')}}</strong>
+            </span>
+            @endif
+          </div>
+
         <br>
-            <button class="btn btn-primary" type="submit"> Hantar </button>
+            <button class="btn btn-primary" type="submit" name="action" value="simpansimptom"> Hantar </button>
 
       </form>
 

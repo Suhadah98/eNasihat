@@ -49,9 +49,11 @@ Route::post('/simpan/create','App\Http\Controllers\CarianController@store')->nam
 
 Route::get('/kes/create','App\Http\Controllers\KesController@create')->name('kes.create');
 
+//Route::get('/kes/create','App\Http\Controllers\KesController@create1')->name('kes.create1');
+
 Route::post('/kes/create','App\Http\Controllers\KesController@store')->name('kes.store');
 
-
+//Route::post('/kes/create','App\Http\Controllers\KesController@simpanSimptom')->name('kes.simpansimptom');
 
 Auth::routes();
 
