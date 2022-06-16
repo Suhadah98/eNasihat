@@ -35,11 +35,25 @@
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control {{$errors->has('email') ?'is-invalid':''}}" id="email" name="email" >
+
+            @if($errors->has('email'))
+            <span class="help-block">
+            <strong>{{$errors->first('email')}}</strong>
+            </span>
+            @endif
+
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password">
+
+            @if($errors->has('password'))
+            <span class="help-block">
+            <strong>{{$errors->first('password')}}</strong>
+            </span>
+            @endif
+
         </div>
 
 

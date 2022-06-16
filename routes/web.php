@@ -45,7 +45,7 @@ Route::get('/simpan','App\Http\Controllers\CarianController@index')->name('simpa
 
 Route::get('/simpan/create','App\Http\Controllers\CarianController@create')->name('simpan.create');
 
-Route::post('/simpan/create','App\Http\Controllers\CarianController@store')->name('simpan.store');
+Route::post('/simpan','App\Http\Controllers\CarianController@store')->name('simpan.store');
 
 Route::get('/kes/create','App\Http\Controllers\KesController@create')->name('kes.create');
 

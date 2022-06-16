@@ -36,9 +36,7 @@
               <td>{{$simpan->kesID}}</td>
               <td>{{$simpan->nama_kes}}</td>
               <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Simptom dan Solusi
-                  </button>
+                  <a href="?kes={{$simpan->kesID}}" class="btn btn-primary">Simptom dan Solusi</a>
                   <a href="/temujanji/{{$simpan->kesID}}" class="btn btn-primary">Temujanji</a>
               </td>
             </tr>
@@ -46,6 +44,62 @@
           </tbody>
         </table>
       </div>
+
+      @if (Request::input('kes'))
+      <div class="card">
+          <div class="card-header">Simptom</div>
+          <div class="card-body">
+
+              <table class="table ">
+                  <thead>
+                      <tr>
+
+                          <th>Simptom</th>
+
+                      </tr>
+                  </thead>
+
+                  <tbody>
+                      @foreach ($simptoms as $simptom)
+                          <tr>
+                              <td>{{ $simptom->simptom }}</td>
+                          </tr>
+                      @endforeach
+                      <td>
+                      </td>
+                  </tbody>
+              </table>
+
+          </div>
+      </div>
+
+
+
+      <div class="card">
+          <div class="card-header">Solusi</div>
+          <div class="card-body">
+
+              <table class="table ">
+                  <thead>
+                      <tr>
+
+                          <th>Solusi</th>
+
+                      </tr>
+                  </thead>
+
+                  <tbody>
+                      @foreach ($solusis as $solusi)
+                          <tr>
+                              <td>{{ $solusi->solusi }}</td>
+                          </tr>
+                      @endforeach
+                  </tbody>
+              </table>
+
+          </div>
+      </div>
+  @endif
 
       <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

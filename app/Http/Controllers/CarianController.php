@@ -11,18 +11,22 @@ use Illuminate\Http\Request;
 class CarianController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
         $simpans=Simpan::latest()->where('name','=',Auth::user()->name)->get();
 
-        $simptoms = DB::table('simpans')
-        ->join('simptoms','simpans.kesID','=','simptoms.kesID')
-        ->select('simpans.*','simptoms.*')
+        $selectedKes=$request->get('kes');
+
+        $simptoms = DB::table('kes')
+        ->join('simptoms','kes.kesID','=','simptoms.kesID')
+        ->where('kes.kesID','=',$selectedKes)
+        ->select('kes.*','simptoms.*')
         ->get();
 
-        $solusis = DB::table('simpans')
-        ->join('solusis','simpans.kesID','=','solusis.kesID')
-        ->select('simpans.*','solusis.*')
+        $solusis = DB::table('kes')
+        ->join('solusis','kes.kesID','=','solusis.kesID')
+        ->where('kes.kesID','=',$selectedKes)
+        ->select('kes.*','solusis.*')
         ->get();
 
         return view('simpan.index',compact('simpans','simptoms','solusis'));
@@ -90,6 +94,8 @@ class CarianController extends Controller
      */
     public function store(Request $request)
     {
+        if(('name')||('kesID'))
+        {
         $request->validate([
 
             'name'=>'required',
@@ -97,26 +103,31 @@ class CarianController extends Controller
             'nama_kes'=>'required',
         ]);
 
-        Simpan::create([
+        Simpan::updateOrCreate([
 
             'name'=>request('name'),
             'kesID'=>request('kesID'),
             'nama_kes'=>request('nama_kes')
         ]);
 
-        $simpans=Simpan::latest()->get();
 
-        $simptoms = DB::table('simpans')
-            ->join('simptoms','simpans.kesID','=','simptoms.kesID')
-            ->select('simpans.*','simptoms.*')
-            ->get();
+            $simpans=Simpan::latest()->where('name','=',Auth::user()->name)->get();
 
-        $solusis = DB::table('simpans')
-            ->join('solusis','simpans.kesID','=','solusis.kesID')
-            ->select('simpans.*','solusis.*')
-            ->get();
+            $simptoms = DB::table('simpans')
+                ->join('simptoms','simpans.kesID','=','simptoms.kesID')
+                ->select('simpans.*','simptoms.*')
+                ->get();
 
-        return view('simpan.index',compact('simpans','simptoms','solusis'));
+            $solusis = DB::table('simpans')
+                ->join('solusis','simpans.kesID','=','solusis.kesID')
+                ->select('simpans.*','solusis.*')
+                ->get();
 
+            return view('simpan.index',compact('simpans','simptoms','solusis'));
+        }
+
+        else{
+            return redirect('searchklien')->with('flashMessageProblem','Sudah di simpan dalam sejarah');
+        }
     }
 }
