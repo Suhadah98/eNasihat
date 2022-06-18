@@ -44,10 +44,10 @@
                         @if(count($kes) > 0)
                         @foreach ($kes as $kes)
                             <tr>
-                                <td>{{ $kes->kesID }}</td>
+                                <td>{{ $kes->id }}</td>
                                 <td>{{ $kes->nama_kes }}</td>
                                 <td>
-                                    <a href="{{ route('search', ['kes' => $kes->kesID]) }}"
+                                    <a href="{{ route('search', ['kes' => $kes->id]) }}"
                                         class="btn btn-sm btn-secondary">Simptom dan Solusi</a>
                                 </td>
                             </tr>

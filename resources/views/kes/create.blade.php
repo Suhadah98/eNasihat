@@ -45,10 +45,10 @@
 
         <div class="form-group">
             <label for="Kes">Jenis Kes</label>
-            <select class="form-control" id="kesID" name="kesID" required focus>
+            <select class="form-control" id="id" name="id" required focus>
          <option value="" disabled selected>Sila Pilih Kes</option>
          @foreach($kes as $kes)
-         <option value="{{$kes->kesID}}">{{ $kes->nama_kes }}</option>
+         <option value="{{$kes->id}}">{{ $kes->nama_kes }}</option>
          @endforeach
        </select>
        </div>
@@ -86,7 +86,7 @@
 @endsection
 
 <script type="text/javascript">
-    var mydropdown = document.getElementById('kesID');
+    var mydropdown = document.getElementById('id');
     mydropdown.onchange = function(){
         mytextbox.value = mytextbox.value  + this.value; //to appened
        mytextbox.innerHTML = this.value;

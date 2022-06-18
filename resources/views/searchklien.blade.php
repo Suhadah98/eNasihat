@@ -42,18 +42,18 @@
 
                         @foreach ($kes as $kes)
                         <tr>
-                            <td>{{ $kes->kesID }}</td>
+                            <td>{{ $kes->id }}</td>
                             <td>{{ $kes->nama_kes }}</td>
 
                             <td>
-                                <a href="{{ route('searchklien', ['kes' => $kes->kesID]) }}"
+                                <a href="{{ route('searchklien', ['kes' => $kes->id]) }}"
                                     class="btn btn-sm btn-secondary">Simptom dan Solusi</a>
                             </td>
                             <td>
                                 <form action="{{ route('simpan.store')}}" method="post">
                                     {{csrf_field() }}
                                 <input type="hidden" id="name" name="name" value="{{ Auth::user()->name }}">
-                                  <input type="hidden" id="kesID" name="kesID" value="{{ $kes->kesID }}">
+                                  <input type="hidden" id="kesID" name="kesID" value="{{ $kes->id }}">
                                   <input type="hidden" id="nama_kes" name="nama_kes" value="{{ $kes->nama_kes }}">
                                   <input class="btn btn-sm btn-secondary" type="submit" value="Disimpan">
                                   </form>

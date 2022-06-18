@@ -21,7 +21,7 @@
 
       <div class="table-responsive">
 
-      <a class="btn btn-primary" href="/kes/create" role="button">Membuat temujanji</a>
+      <a class="btn btn-primary" href="/kes/create" role="button">Penambahan Input</a>
         <table class="table table-striped table-sm">
           <thead>
             <tr>
@@ -33,11 +33,11 @@
           <tbody>
               @foreach($kes as $kes)
             <tr>
-              <td>{{$kes->kesID}}</td>
+              <td>{{$kes->id}}</td>
               <td>{{$kes->nama_kes}}</td>
               <td>
-                <a href="/kes/{{$kes->kesID}}" class="btn btn-primary">Kemaskini</a>
-                <a href="" class="btn btn-danger">Padam</a>
+                <a href="/kes/{{$kes->id}}" class="btn btn-primary">Kemaskini</a>
+                <a href="/kes/delete/{{$kes->id}}" class="btn btn-danger">Padam</a>
               </td>
             </tr>
             @endforeach
@@ -61,12 +61,12 @@
           <tbody>
               @foreach($simptoms as $simptoms)
             <tr>
-              <td>{{$simptoms->simptomID}}</td>
+              <td>{{$simptoms->id}}</td>
               <td>{{$simptoms->simptom}}</td>
               <td>{{$simptoms->kesID}}</td>
               <td>
-                <a href="" class="btn btn-primary">Kemaskini</a>
-                <a href="" class="btn btn-danger">Padam</a>
+                <a href="/simptom/{{$simptoms->id}}" class="btn btn-primary">Kemaskini</a>
+                <a href="/simptom/delete/{{$simptoms->id}}" class="btn btn-danger">Padam</a>
               </td>
             </tr>
             @endforeach
@@ -94,8 +94,8 @@
               <td>{{$solusis->solusi}}</td>
               <td>{{$solusis->kesID}}</td>
               <td>
-                <a href="" class="btn btn-primary">Kemaskini</a>
-                <a href="" class="btn btn-danger">Padam</a>
+                <a href="/solusi/{{$solusis->id}}" class="btn btn-primary">Kemaskini</a>
+                <a href="/solusi/delete/{{$solusis->id}}" class="btn btn-danger">Padam</a>
               </td>
             </tr>
             @endforeach

@@ -18,14 +18,14 @@ class CarianController extends Controller
         $selectedKes=$request->get('kes');
 
         $simptoms = DB::table('kes')
-        ->join('simptoms','kes.kesID','=','simptoms.kesID')
-        ->where('kes.kesID','=',$selectedKes)
+        ->join('simptoms','kes.id','=','simptoms.kesID')
+        ->where('kes.id','=',$selectedKes)
         ->select('kes.*','simptoms.*')
         ->get();
 
         $solusis = DB::table('kes')
-        ->join('solusis','kes.kesID','=','solusis.kesID')
-        ->where('kes.kesID','=',$selectedKes)
+        ->join('solusis','kes.id','=','solusis.kesID')
+        ->where('kes.id','=',$selectedKes)
         ->select('kes.*','solusis.*')
         ->get();
 
@@ -43,14 +43,14 @@ class CarianController extends Controller
        $kes->appends($request->all());
 
        $simptoms = DB::table('kes')
-            ->join('simptoms','kes.kesID','=','simptoms.kesID')
-            ->where('kes.kesID','=',$selectedKes)
+            ->join('simptoms','kes.id','=','simptoms.kesID')
+            ->where('kes.id','=',$selectedKes)
             ->select('kes.*','simptoms.*')
             ->get();
 
         $solusis = DB::table('kes')
-            ->join('solusis','kes.kesID','=','solusis.kesID')
-            ->where('kes.kesID','=',$selectedKes1)
+            ->join('solusis','kes.id','=','solusis.kesID')
+            ->where('kes.id','=',$selectedKes1)
             ->select('kes.*','solusis.*')
             ->get();
 
@@ -67,14 +67,14 @@ class CarianController extends Controller
        $kes = DB::table('kes')->where('nama_kes','like','%'.$search.'%')->paginate(2);
 
        $simptoms = DB::table('kes')
-            ->join('simptoms','kes.kesID','=','simptoms.kesID')
-            ->where('kes.kesID','=',$selectedKes)
+            ->join('simptoms','kes.id','=','simptoms.kesID')
+            ->where('kes.id','=',$selectedKes)
             ->select('kes.*','simptoms.*')
             ->get();
 
         $solusis = DB::table('kes')
-            ->join('solusis','kes.kesID','=','solusis.kesID')
-            ->where('kes.kesID','=',$selectedKes1)
+            ->join('solusis','kes.id','=','solusis.kesID')
+            ->where('kes.id','=',$selectedKes1)
             ->select('kes.*','solusis.*')
             ->get();
 

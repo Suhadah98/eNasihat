@@ -51,15 +51,31 @@ Route::get('/kes','App\Http\Controllers\KesController@index')->name('kes.index')
 
 Route::get('/kes/create','App\Http\Controllers\KesController@create')->name('kes.create');
 
-//Route::get('/kes/create','App\Http\Controllers\KesController@create1')->name('kes.create1');
-
 Route::post('/kes/create','App\Http\Controllers\KesController@store')->name('kes.store');
 
 Route::post('/kes/{kes}','App\Http\Controllers\KesController@update')->name('kes.update');
 
+Route::get('/kes/delete/{kes}','App\Http\Controllers\KesController@delete')->name('kes.delete');
+
+Route::post('/kes/delete/{kes}','App\Http\Controllers\KesController@destroy')->name('kes.destroy');
+
 Route::get('/kes/{kes}','App\Http\Controllers\KesController@show')->name('kes.show');
 
-//Route::post('/kes/create','App\Http\Controllers\KesController@simpanSimptom')->name('kes.simpansimptom');
+Route::post('/simptom/{simptoms}','App\Http\Controllers\SimptomController@update')->name('simptom.update');
+
+Route::get('/simptom/delete/{simptoms}','App\Http\Controllers\SimptomController@delete')->name('simptom.delete');
+
+Route::post('/simptom/delete/{simptoms}','App\Http\Controllers\SimptomController@destroy')->name('simptom.destroy');
+
+Route::get('/simptom/{simptoms}','App\Http\Controllers\SimptomController@show')->name('simptom.show');
+
+Route::post('/solusi/{solusis}','App\Http\Controllers\SolusiController@update')->name('solusi.update');
+
+Route::get('/solusi/delete/{solusis}','App\Http\Controllers\SolusiController@delete')->name('solusi.delete');
+
+Route::post('/solusi/delete/{solusis}','App\Http\Controllers\SolusiController@destroy')->name('solusi.destroy');
+
+Route::get('/solusi/{solusis}','App\Http\Controllers\SolusiController@show')->name('solusi.show');
 
 Auth::routes();
 

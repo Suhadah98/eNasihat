@@ -54,7 +54,7 @@ class KesController extends Controller
                 $request->validate([
 
                     'simptom'=>'required',
-                    'kesID'=>'required',
+                    'id'=>'required',
                     'solusi'=>'required',
 
                   ]);
@@ -62,14 +62,14 @@ class KesController extends Controller
                   Simptom::create([
 
                     'simptom'=>request('simptom'),
-                    'kesID'=>request('kesID'),
+                    'kesID'=>request('id'),
 
                   ]);
 
                   Solusi::create([
 
                     'solusi'=>request('solusi'),
-                    'kesID'=>request('kesID'),
+                    'kesID'=>request('id'),
                   ]);
 
                   return redirect()->route('kes.create')->with('success', 'Selected Username added successfuly');
@@ -99,6 +99,18 @@ class KesController extends Controller
 
         $kes->nama_kes = request('nama_kes');
         $kes->save();
+
+        return redirect()->route('kes.index');
+    }
+    public function delete(Kes $kes)
+    {
+        return view('kes.delete',compact('kes'));
+    }
+
+    public function destroy(Kes $kes)
+    {
+
+        $kes->delete();
 
         return redirect()->route('kes.index');
     }
