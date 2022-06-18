@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Temujanji;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PengesahanController extends Controller
@@ -13,7 +14,7 @@ class PengesahanController extends Controller
         $temujanjis=Temujanji::latest()->where('status','=',"-")->get();
         //return view('pengesahan.index',compact('temujanjis'));
 
-        $temujanjis1=Temujanji::latest()->where('status','=',"Sah")->get();
+        $temujanjis1=Temujanji::latest()->where('status','=',"Sah")->where('nama_kaunselor','=',Auth::user()->name)->get();
         return view('pengesahan.index',compact('temujanjis','temujanjis1'));
     }
 

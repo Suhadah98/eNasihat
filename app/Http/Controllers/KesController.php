@@ -9,7 +9,14 @@ use Illuminate\Http\Request;
 
 class KesController extends Controller
 {
+    public function index()
+    {
+        $kes=Kes::latest()->get();
+        $simptoms=Simptom::latest()->get();
+        $solusis=Solusi::latest()->get();
 
+        return view('kes.index',compact('kes','simptoms','solusis'));
+    }
 
     public function create()
     {
@@ -72,4 +79,28 @@ class KesController extends Controller
                 break;
         }
     }
+    public function show(Kes $kes)
+    {
+        return view('kes.show',compact('kes'));
+    }
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Kes
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Kes $kes)
+    {
+        $request->validate([
+
+            'nama_kes'=>'required',
+        ]);
+
+        $kes->nama_kes = request('nama_kes');
+        $kes->save();
+
+        return redirect()->route('kes.index');
+    }
+
 }

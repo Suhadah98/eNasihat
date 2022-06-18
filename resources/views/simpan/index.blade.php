@@ -37,7 +37,7 @@
               <td>{{$simpan->nama_kes}}</td>
               <td>
                   <a href="?kes={{$simpan->kesID}}" class="btn btn-primary">Simptom dan Solusi</a>
-                  <a href="/temujanji/{{$simpan->kesID}}" class="btn btn-primary">Temujanji</a>
+                  <a href="/temujanji/create" class="btn btn-primary">Temujanji</a>
               </td>
             </tr>
             @endforeach

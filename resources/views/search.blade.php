@@ -12,6 +12,13 @@
                 <form action="/search" method="get">
                     <div class="input-group">
                         <input type="search" name="search" class="form-control">
+
+                        @if($errors->has('search'))
+                        <span class="help-block">
+                        <strong>{{$errors->first('search')}}</strong>
+                        </span>
+                       @endif
+
                         <span class="input-group-prepend">
                             <button type="submit" class="btn btn-primary">Carian</button>
                         </span>
@@ -32,6 +39,8 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if (Request::input('search'))
+
                         @if(count($kes) > 0)
                         @foreach ($kes as $kes)
                             <tr>
@@ -43,6 +52,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                        @endif
                         @endif
                     </tbody>
                 </table>

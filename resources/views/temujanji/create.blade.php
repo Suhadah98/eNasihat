@@ -50,12 +50,12 @@
 
         <div class="form-group">
           <label for="status">Status</label>
-          <input type="text" id="status" name="status" class="form-control"/>
+          <input type="text" id="status" name="status" class="form-control" value="-" readonly/>
         </div>
 
         <div class="form-group">
           <label for="nama_kaunselor">Nama Kaunselor</label>
-          <input type="text" id="nama_kaunselor" name="nama_kaunselor" class="form-control"/>
+          <input type="text" id="nama_kaunselor" name="nama_kaunselor" class="form-control" value="-" readonly/>
         </div>
 
         <button class="btn btn-primary" type="submit"> Hantar </button>

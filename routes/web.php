@@ -47,11 +47,17 @@ Route::get('/simpan/create','App\Http\Controllers\CarianController@create')->nam
 
 Route::post('/simpan','App\Http\Controllers\CarianController@store')->name('simpan.store');
 
+Route::get('/kes','App\Http\Controllers\KesController@index')->name('kes.index');
+
 Route::get('/kes/create','App\Http\Controllers\KesController@create')->name('kes.create');
 
 //Route::get('/kes/create','App\Http\Controllers\KesController@create1')->name('kes.create1');
 
 Route::post('/kes/create','App\Http\Controllers\KesController@store')->name('kes.store');
+
+Route::post('/kes/{kes}','App\Http\Controllers\KesController@update')->name('kes.update');
+
+Route::get('/kes/{kes}','App\Http\Controllers\KesController@show')->name('kes.show');
 
 //Route::post('/kes/create','App\Http\Controllers\KesController@simpanSimptom')->name('kes.simpansimptom');
 

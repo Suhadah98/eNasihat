@@ -52,7 +52,7 @@
 
         <div class="form-group">
           <label for="status">Status</label>
-          <input type="text" id="status" name="status" class="form-control" value="{{$temujanji->status}}"/>
+          <input type="text" id="status" name="status" class="form-control" value="{{$temujanji->status}}" readonly/>
         </div>
         @php
 
@@ -61,7 +61,7 @@
 
         <div class="form-group">
           <label for="nama_kaunselor">Nama Kaunselor</label>
-          <input type="text" id="nama_kaunselor" name="nama_kaunselor" class="form-control" value="{{$temujanji->nama_kaunselor}}"/>
+          <input type="text" id="nama_kaunselor" name="nama_kaunselor" class="form-control" value="{{$temujanji->nama_kaunselor}}" readonly/>
         </div>
 
         <button class="btn btn-primary" type="submit"> Hantar </button>

@@ -16,6 +16,7 @@
           </button>
         </div>
       </div>
+
       <h2>Penambahan Kes</h2>
 
       <form action="" method="post">
