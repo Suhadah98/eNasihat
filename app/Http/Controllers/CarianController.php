@@ -66,6 +66,10 @@ class CarianController extends Controller
 
        $kes = DB::table('kes')->where('nama_kes','like','%'.$search.'%')->paginate(2);
 
+       $kes1 = DB::table('kes')
+       ->where('kes.id','=',$selectedKes)
+       ->get();
+
        $simptoms = DB::table('kes')
             ->join('simptoms','kes.id','=','simptoms.kesID')
             ->where('kes.id','=',$selectedKes)
@@ -78,7 +82,7 @@ class CarianController extends Controller
             ->select('kes.*','solusis.*')
             ->get();
 
-       return view('searchklien',compact('kes','simptoms','solusis'));
+       return view('searchklien',compact('kes','simptoms','solusis','kes1'));
     }
     public function create()
     {
@@ -127,7 +131,8 @@ class CarianController extends Controller
         }
 
         else{
-            return redirect('searchklien')->with('flashMessageProblem','Sudah di simpan dalam sejarah');
+
+            return redirect('searchklien')->with('alert','Sudah di simpan dalam sejarah');
         }
     }
 }

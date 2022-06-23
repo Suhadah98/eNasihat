@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Temujanji</h1>
@@ -38,8 +39,8 @@
         </div>
 
         <div class="form-group">
-          <label for="tarikh">Tarikh</label>
-          <input type="date" id="tarikh" name="tarikh" class="form-control {{$errors->has('tarikh') ?'is-invalid':''}}" placeholder="YYYY-MM-DD"/>
+          <label for="tarikh">Tarikh dan Masa (Cadangan)</label>
+          <input type="datetime" id="tarikh" name="tarikh" class="form-control {{$errors->has('tarikh') ?'is-invalid':''}}" placeholder="YYYY-MM-DD" value="{{null}}" readonly/>
 
           @if($errors->has('tarikh'))
           <span class="help-block">
@@ -47,6 +48,17 @@
           </span>
           @endif
         </div>
+
+        <div class="form-group">
+            <label for="ulasan">Ulasan Klien</label>
+            <input type="text" id="ulasan" name="ulasan" class="form-control {{$errors->has('ulasan') ?'is-invalid':''}}" placeholder="" value="-" readonly/>
+
+            @if($errors->has('ulasan'))
+            <span class="help-block">
+            <strong>{{$errors->first('ulasan')}}</strong>
+            </span>
+            @endif
+          </div>
 
         <div class="form-group">
           <label for="status">Status</label>
@@ -57,6 +69,17 @@
           <label for="nama_kaunselor">Nama Kaunselor</label>
           <input type="text" id="nama_kaunselor" name="nama_kaunselor" class="form-control" value="-" readonly/>
         </div>
+
+        <div class="form-group">
+            <label for="ulasakaunselor">Ulasan Kaunselor</label>
+            <input type="text" id="ulasankaunselor" name="ulasankaunselor" class="form-control {{$errors->has('ulasankaunselor') ?'is-invalid':''}}"  value="-" readonly/>
+
+            @if($errors->has('ulasankaunselor'))
+            <span class="help-block">
+            <strong>{{$errors->first('ulasankaunselor')}}</strong>
+            </span>
+            @endif
+          </div>
 
         <button class="btn btn-primary" type="submit"> Hantar </button>
         <a href="{{route('temujanji.index')}}" class="btn btn-secondary"> Kembali </a>
@@ -77,3 +100,14 @@
       date_input.datepicker(options);
     })
 </script>
+
+<script type="text/javascript">
+
+    $('.timepicker').datetimepicker({
+
+        format: 'HH:mm:ss'
+
+    });
+
+</script>
+

@@ -15,7 +15,7 @@ class TemujanjiController extends Controller
      */
     public function index()
     {
-        $temujanjis=Temujanji::latest()->where('status','=',"-")->where('nama_klien','=',Auth::user()->name)->get();
+        $temujanjis=Temujanji::latest()->where('nama_klien','=',Auth::user()->name)->get();
         //return view('temujanji.index',compact('temujanjis'));
 
         $temujanjis1=Temujanji::latest()->where('status','=',"Sah")->where('nama_klien','=',Auth::user()->name)->get();
@@ -46,7 +46,8 @@ class TemujanjiController extends Controller
 
             'nama_klien'=>'required',
             'masalah'=>'required',
-            'tarikh'=>'required',
+            'status'=>'required',
+            'ulasan'=>'required',
         ]);
 
         Temujanji::create([
@@ -56,6 +57,8 @@ class TemujanjiController extends Controller
             'tarikh'=>request('tarikh'),
             'status'=>request('status'),
             'nama_kaunselor'=>request('nama_kaunselor'),
+            'ulasan'=>request('ulasan'),
+            'ulasankaunselor'=>request('ulasankaunselor'),
         ]);
 
         return redirect ()->route('temujanji.index');
@@ -102,12 +105,16 @@ class TemujanjiController extends Controller
 
             'nama_klien'=>'required',
             'masalah'=>'required',
-            'tarikh'=>'required',
+            'status'=>'required',
+            'ulasan'=>'required',
+
         ]);
 
         $temujanji->nama_klien = request('nama_klien');
         $temujanji->masalah = request('masalah');
-        $temujanji->tarikh = request('tarikh');
+        $temujanji->ulasan= request('ulasan');
+        $temujanji->status= request('status');
+
         $temujanji->save();
 
         return redirect()->route('temujanji.index');

@@ -11,7 +11,7 @@ class PengesahanController extends Controller
     //
     public function index()
     {
-        $temujanjis=Temujanji::latest()->where('status','=',"-")->get();
+        $temujanjis=Temujanji::latest()->get();
         //return view('pengesahan.index',compact('temujanjis'));
 
         $temujanjis1=Temujanji::latest()->where('status','=',"Sah")->where('nama_kaunselor','=',Auth::user()->name)->get();
@@ -27,13 +27,17 @@ class PengesahanController extends Controller
     {
         $request->validate([
 
+            'tarikh'=>'required',
             'status'=>'required',
             'nama_kaunselor'=>'required',
+            'ulasankaunselor'=>'required',
 
         ]);
 
+        $temujanji->tarikh=request('tarikh');
         $temujanji->status = request('status');
         $temujanji->nama_kaunselor = request('nama_kaunselor');
+        $temujanji->ulasankaunselor = request('ulasankaunselor');
         $temujanji->save();
 
         return redirect()->route('pengesahan.index');

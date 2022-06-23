@@ -24,7 +24,7 @@
         <div class="form-group">
           <label for="nama_klien">Nama Klien</label>
           <input type="text" id="nama_klien" name="nama_klien" class="form-control {{$errors->has('nama_klien') ?'is-invalid':''}}" value="{{ old('nama_klien',$temujanji->nama_klien) }}" disabled/>
-       
+
           @if($errors->has('nama_klien'))
           <span class="help-block">
 
@@ -32,33 +32,44 @@
           </span>
 
           @endif
-        </div> 
+        </div>
 
         <div class="form-group">
           <label for="masalah">Masalah</label>
           <input type="text" id="masalah" name="masalah" class="form-control {{$errors->has('masalah') ?'is-invalid':''}}" value="{{old('masalah',$temujanji->masalah) }}" disabled/>
-        
+
           @if($errors->has('masalah'))
           <span class="help-block">
             <strong>{{$errors->first('masalah')}}</strong>
           </span>
           @endif
-        </div> 
+        </div>
 
         <div class="form-group">
-          <label for="tarikh">Tarikh</label>
-          <input type="date" id="tarikh" name="tarikh" class="form-control" placeholder="YYYY-MM-DD" value="{{$temujanji->tarikh}}"disabled/>
-        </div> 
+          <label for="tarikh">Tarikh dan Masa (Cadangan) </label>
+          <input type="datetime" id="tarikh" name="tarikh" class="form-control" placeholder="YYYY-MM-DD" value="{{$temujanji->tarikh}}"disabled/>
+        </div>
+
+        <div class="form-group">
+            <label for="ulasan">Ulasan Klien</label>
+          <input type="ulasan" id="ulasan" name="ulasan" class="form-control" value="{{$temujanji->ulasan}}"disabled/>
+        </div>
+
 
         <div class="form-group">
           <label for="status">Status</label>
           <input type="text" id="status" name="status" class="form-control" value="{{$temujanji->status}}"disabled/>
-        </div> 
+        </div>
 
         <div class="form-group">
           <label for="nama_kaunselor">Nama Kaunselor</label>
           <input type="text" id="nama_kaunselor" name="nama_kaunselor" class="form-control" value="{{$temujanji->nama_kaunselor}}"disabled/>
-        </div> 
+        </div>
+
+        <div class="form-group">
+            <label for="ulasankaunselor">Ulasan Kaunselor</label>
+            <input type="text" id="ulasankaunselor" name="ulasankaunselor" class="form-control" value="{{$temujanji->ulasankaunselor}}"disabled/>
+          </div>
 
         <button class="btn btn-danger" type="submit"> Padam </button>
         <a href="{{route('temujanji.index')}}" class="btn btn-secondary"> Kembali </a>

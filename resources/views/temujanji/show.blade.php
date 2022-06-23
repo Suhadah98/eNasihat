@@ -46,23 +46,33 @@
         </div>
 
         <div class="form-group">
-          <label for="tarikh">Tarikh</label>
-          <input type="date" id="tarikh" name="tarikh" class="form-control" placeholder="YYYY-MM-DD" value="{{$temujanji->tarikh}}"/>
+          <label for="tarikh">Tarikh dan Masa (Cadangan)</label>
+          <input type="datetime" id="tarikh" name="tarikh" class="form-control" placeholder="YYYY-MM-DD" value="{{$temujanji->tarikh}}" readonly/>
         </div>
 
-        <div class="form-group">
-          <label for="status">Status</label>
-          <input type="text" id="status" name="status" class="form-control" value="{{$temujanji->status}}" readonly/>
-        </div>
-        @php
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select class="form-select" aria-label="Default select example" id="status" name="status" class="form-control" value="{{$temujanji->status}}">
+              <option selected>Pilih</option>
+              <option value="Setuju">Setuju dengan tarikh</option>
+              <option value="Tukar">Meminta untuk menukar tarikh</option>
+            </select>
+          </div>
 
-
-        @endphp
+          <div class="form-group">
+            <label for="ulasan">Ulasan Klien</label>
+            <input type="text" id="ulasan" name="ulasan" class="form-control" value="{{$temujanji->ulasan}}"/>
+          </div>
 
         <div class="form-group">
           <label for="nama_kaunselor">Nama Kaunselor</label>
           <input type="text" id="nama_kaunselor" name="nama_kaunselor" class="form-control" value="{{$temujanji->nama_kaunselor}}" readonly/>
         </div>
+
+        <div class="form-group">
+            <label for="ulasankaunselor">Ulasan Kaunselor</label>
+            <input type="text" id="ulasankaunselor" name="ulasankaunselor" class="form-control" value="{{$temujanji->ulasankaunselor}}" readonly/>
+          </div>
 
         <button class="btn btn-primary" type="submit"> Hantar </button>
         <a href="{{route('temujanji.index')}}" class="btn btn-secondary"> Kembali </a>

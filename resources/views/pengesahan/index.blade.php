@@ -27,9 +27,11 @@
               <th scope="col">#</th>
               <th scope="col">Nama Klien</th>
               <th scope="col">Masalah</th>
-              <th scope="col">Tarikh</th>
+              <th scope="col">Tarikh dan Masa (Cadangan)</th>
               <th scope="col">Status</th>
+              <th scope="col">Ulasan Klien</th>
               <th scope="col">Nama Kaunselor</th>
+              <th scope="col">Ulasan Kaunselor</th>
               <th scope="col">Tindakan</th>
             </tr>
           </thead>
@@ -41,7 +43,9 @@
               <td>{{$temujanji->masalah}}</td>
               <td>{{$temujanji->tarikh}}</td>
               <td>{{$temujanji->status}}</td>
+              <td>{{$temujanji->ulasan}}</td>
               <td>{{$temujanji->nama_kaunselor}}</td>
+              <td>{{$temujanji->ulasankaunselor}}</td>
               <td>
                 <a href="/pengesahan/{{$temujanji->id}}" class="btn btn-primary">Pengesahan</a>
               </td>

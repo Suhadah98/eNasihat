@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('temujanjis', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_klien');
-            $table->string('masalah');
-            $table->datetime('tarikh')->nullable();
-            $table->string('status');
-            $table->string('nama_kaunselor');
-            $table->timestamps();
+        Schema::table('temujanjis', function (Blueprint $table) {
+            $table->text('ulasan');
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('temujanjis');
+        Schema::table('temujanjis', function (Blueprint $table) {
+            $table->dropColumn('ulasan');
+        });
     }
 };

@@ -72,7 +72,7 @@ class KesController extends Controller
                     'kesID'=>request('id'),
                   ]);
 
-                  return redirect()->route('kes.create')->with('success', 'Selected Username added successfuly');
+                  return redirect()->route('kes.create')->with('success', 'Solusi dah Simptom berjaya di tambah');
                 break;
 
             case 'simpansolusi':
