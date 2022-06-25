@@ -11,11 +11,12 @@ class PengesahanController extends Controller
     //
     public function index()
     {
-        $temujanjis=Temujanji::latest()->get();
-        //return view('pengesahan.index',compact('temujanjis'));
+        $temujanjis=Temujanji::latest()->where('status','=',"-")->get();
 
-        $temujanjis1=Temujanji::latest()->where('status','=',"Sah")->where('nama_kaunselor','=',Auth::user()->name)->get();
-        return view('pengesahan.index',compact('temujanjis','temujanjis1'));
+        $temujanjis2=Temujanji::latest()->where('status','=',"Tunda")->where('nama_kaunselor','=',Auth::user()->name)->get();
+
+        $temujanjis1=Temujanji::latest()->where('status','=',"Setuju")->where('nama_kaunselor','=',Auth::user()->name)->get();
+        return view('pengesahan.index',compact('temujanjis','temujanjis1','temujanjis2'));
     }
 
     public function show(Temujanji $temujanji)

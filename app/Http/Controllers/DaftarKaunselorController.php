@@ -46,6 +46,6 @@ class DaftarKaunselorController extends Controller
 
         ]);
 
-        return redirect ()->route('daftar.create');
+        return redirect ()->route('daftar.create')->with('success','Kaunselor berjaya ditambah');
     }
 }

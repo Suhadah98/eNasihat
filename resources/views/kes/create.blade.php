@@ -36,6 +36,12 @@
         <button class="btn btn-primary" type="submit" name="action" value="simpankes"> Hantar </button>
       </form>
 
+      @if(Session::get('success1'))
+      <div class="alert alert-success">
+          {{session::get('success1')}}
+      </div>
+        @endif
+
       <br>
       <h2>Simptom</h2>
 
@@ -77,6 +83,14 @@
             @endif
           </div>
 
+          <br>
+
+          @if(Session::get('success'))
+          <div class="alert alert-success">
+              {{session::get('success')}}
+          </div>
+            @endif
+
         <br>
             <button class="btn btn-primary" type="submit" name="action" value="simpansimptom"> Hantar </button>
 
@@ -92,3 +106,5 @@
        mytextbox.innerHTML = this.value;
        }
     </script>
+
+

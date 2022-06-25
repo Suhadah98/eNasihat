@@ -16,10 +16,13 @@ class TemujanjiController extends Controller
     public function index()
     {
         $temujanjis=Temujanji::latest()->where('nama_klien','=',Auth::user()->name)->get();
-        //return view('temujanji.index',compact('temujanjis'));
 
-        $temujanjis1=Temujanji::latest()->where('status','=',"Sah")->where('nama_klien','=',Auth::user()->name)->get();
-        return view('temujanji.index',compact('temujanjis','temujanjis1'));
+
+        $temujanjis2=Temujanji::latest()->where('status','=',"Tunda")->where('nama_klien','=',Auth::user()->name)->get();
+
+
+        $temujanjis1=Temujanji::latest()->where('status','=',"Setuju")->where('nama_klien','=',Auth::user()->name)->get();
+        return view('temujanji.index',compact('temujanjis','temujanjis1','temujanjis2'));
     }
 
     /**

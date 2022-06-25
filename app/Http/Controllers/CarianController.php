@@ -15,6 +15,8 @@ class CarianController extends Controller
     {
         $simpans=Simpan::latest()->where('name','=',Auth::user()->name)->get();
 
+        $simpans1=Simpan::latest()->get();
+
         $selectedKes=$request->get('kes');
 
         $simptoms = DB::table('kes')
@@ -29,7 +31,7 @@ class CarianController extends Controller
         ->select('kes.*','solusis.*')
         ->get();
 
-        return view('simpan.index',compact('simpans','simptoms','solusis'));
+        return view('simpan.index',compact('simpans','simptoms','solusis','simpans1'));
     }
 
     public function search(Request $request)
@@ -117,6 +119,8 @@ class CarianController extends Controller
 
             $simpans=Simpan::latest()->where('name','=',Auth::user()->name)->get();
 
+            $simpans1=Simpan::latest()->where('name','=',Auth::user()->name)->get();
+
             $simptoms = DB::table('simpans')
                 ->join('simptoms','simpans.kesID','=','simptoms.kesID')
                 ->select('simpans.*','simptoms.*')
@@ -127,7 +131,7 @@ class CarianController extends Controller
                 ->select('simpans.*','solusis.*')
                 ->get();
 
-            return view('simpan.index',compact('simpans','simptoms','solusis'));
+            return view('simpan.index',compact('simpans','simptoms','solusis','simpans1'));
         }
 
         else{

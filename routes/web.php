@@ -43,6 +43,8 @@ Route::get('/searchklien','App\Http\Controllers\CarianController@searchklien')->
 
 Route::get('/simpan','App\Http\Controllers\CarianController@index')->name('simpan.index');
 
+Route::get('/sejarahkaunselor','App\Http\Controllers\SejarahController@index')->name('sejarahkaunselor');
+
 Route::get('/simpan/create','App\Http\Controllers\CarianController@create')->name('simpan.create');
 
 Route::post('/simpan','App\Http\Controllers\CarianController@store')->name('simpan.store');

@@ -62,5 +62,11 @@
         </div>
 
     </form>
+
+    @if(Session::get('success'))
+    <div class="alert alert-success">
+        {{session::get('success')}}
+    </div>
+      @endif
 </main>
 @endsection

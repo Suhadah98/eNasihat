@@ -25,6 +25,12 @@
               Penambahan Kes
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route('sejarahkaunselor')}}">
+              <span data-feather="shopping-cart"></span>
+              Sejarah Klien
+            </a>
+          </li>
 
         </ul>
       </div>

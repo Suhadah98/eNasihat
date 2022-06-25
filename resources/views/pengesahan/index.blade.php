@@ -55,9 +55,7 @@
         </table>
       </div>
 
-      <h2>Semakan Temujanji</h2>
-
-
+      <h2>Membuat Pengesahan</h2>
 
       <div class="table-responsive">
 
@@ -67,22 +65,63 @@
               <th scope="col">#</th>
               <th scope="col">Nama Klien</th>
               <th scope="col">Masalah</th>
-              <th scope="col">Tarikh</th>
+              <th scope="col">Tarikh dan Masa (Cadangan)</th>
               <th scope="col">Status</th>
+              <th scope="col">Ulasan Klien</th>
               <th scope="col">Nama Kaunselor</th>
-
+              <th scope="col">Ulasan Kaunselor</th>
+              <th scope="col">Tindakan</th>
             </tr>
           </thead>
           <tbody>
-              @foreach($temujanjis1 as $temujanji)
+              @foreach($temujanjis2 as $temujanji)
             <tr>
               <td>{{$temujanji->id}}</td>
               <td>{{$temujanji->nama_klien}}</td>
               <td>{{$temujanji->masalah}}</td>
               <td>{{$temujanji->tarikh}}</td>
               <td>{{$temujanji->status}}</td>
+              <td>{{$temujanji->ulasan}}</td>
               <td>{{$temujanji->nama_kaunselor}}</td>
+              <td>{{$temujanji->ulasankaunselor}}</td>
+              <td>
+                <a href="/pengesahan/{{$temujanji->id}}" class="btn btn-primary">Pengesahan</a>
+              </td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+      <h2>Semakan Temujanji</h2>
 
+
+
+      <div class="table-responsive">
+
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nama Klien</th>
+                <th scope="col">Masalah</th>
+                <th scope="col">Tarikh dan Masa (Cadangan)</th>
+                <th scope="col">Status</th>
+                <th scope="col">Ulasan Klien</th>
+                <th scope="col">Nama Kaunselor</th>
+                <th scope="col">Ulasan Kaunselor</th>
+              </tr>
+          </thead>
+          <tbody>
+              @foreach($temujanjis1 as $temujanji)
+            <tr>
+                <td>{{$temujanji->id}}</td>
+                <td>{{$temujanji->nama_klien}}</td>
+                <td>{{$temujanji->masalah}}</td>
+                <td>{{$temujanji->tarikh}}</td>
+                <td>{{$temujanji->status}}</td>
+                <td>{{$temujanji->ulasan}}</td>
+                <td>{{$temujanji->nama_kaunselor}}</td>
+                <td>{{$temujanji->ulasankaunselor}}</td>
             </tr>
             @endforeach
           </tbody>

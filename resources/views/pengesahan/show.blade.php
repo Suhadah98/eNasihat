@@ -51,7 +51,7 @@
           </div>
 
         <div class="form-group">
-            <label for="tarikh">Tarikh dan Masa (Cadangan)</label>
+            <label for="tarikh">Tarikh dan Masa (Kemaskini)</label>
             <input type="datetime-local" id="tarikh" name="tarikh" class="form-control" placeholder="YYYY-MM-DD" value="{{$temujanji->tarikh}}"/>
           </div>
 

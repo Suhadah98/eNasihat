@@ -46,7 +46,7 @@ class KesController extends Controller
                     'nama_kes'=>request('nama_kes'),
                 ]);
 
-                return redirect ()->route('kes.create')->with('success', 'Kes berjaya disimpan');;
+                return redirect ()->route('kes.create')->with('success1', 'Kes berjaya disimpan');
                 break;
 
             case 'simpansimptom':
