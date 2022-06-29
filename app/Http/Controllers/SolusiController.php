@@ -46,4 +46,42 @@ class SolusiController extends Controller
 
         return redirect()->route('kes.index');
     }
+
+    public function show1(Solusi $solusis)
+    {
+        return view('solusikaunselor.show',compact('solusis'));
+    }
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Solusi
+     * @return \Illuminate\Http\Response
+     */
+    public function update1(Request $request, Solusi $solusis)
+    {
+        $request->validate([
+
+            'solusi'=>'required',
+            'kesID'=>'required',
+        ]);
+
+        $solusis->simptom = request('simptom');
+        $solusis->kesID = request('kesID');
+        $solusis->save();
+
+        return redirect()->route('keskaunselor.index');
+    }
+    public function delete1(Solusi $solusis)
+    {
+        return view('solusikaunselor.delete',compact('solusis'));
+    }
+
+    public function destroy1(Solusi $solusis)
+    {
+
+        $solusis->delete();
+
+        return redirect()->route('keskaunselor.index');
+    }
 }

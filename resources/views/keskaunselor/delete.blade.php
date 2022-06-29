@@ -1,4 +1,4 @@
-@extends('layouts.Adminmain')
+@extends('layouts.Kaunselormain')
 
 @section('content')
 
@@ -35,7 +35,7 @@
         </div>
 
         <button class="btn btn-danger" type="submit"> Padam </button>
-        <a href="{{route('kes.index')}}" class="btn btn-secondary"> Kembali </a>
+        <a href="{{route('keskaunselor.index')}}" class="btn btn-secondary"> Kembali </a>
       </form>
 
       @if(Session::get('success'))

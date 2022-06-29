@@ -60,6 +60,32 @@ class CarianController extends Controller
 
     }
 
+    public function searchkaunselor(Request $request)
+    {
+
+       $search = $request->get('search');
+       $selectedKes = $request->get('kes');
+       $selectedKes1 = $request->get('kes');
+
+       $kes = DB::table('kes')->where('nama_kes','like','%'.$search.'%')->paginate(1);
+       $kes->appends($request->all());
+
+       $simptoms = DB::table('kes')
+            ->join('simptoms','kes.id','=','simptoms.kesID')
+            ->where('kes.id','=',$selectedKes)
+            ->select('kes.*','simptoms.*')
+            ->get();
+
+        $solusis = DB::table('kes')
+            ->join('solusis','kes.id','=','solusis.kesID')
+            ->where('kes.id','=',$selectedKes1)
+            ->select('kes.*','solusis.*')
+            ->get();
+
+       return view('searchkaunselor',compact('kes','simptoms','solusis'));
+
+    }
+
     public function searchklien(Request $request)
     {
        $search = $request->get('search');

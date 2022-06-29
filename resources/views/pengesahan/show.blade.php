@@ -76,6 +76,15 @@
             <input type="text" id="ulasankaunselor" name="ulasankaunselor" class="form-control" value="{{$temujanji->ulasankaunselor}}"/>
           </div>
 
+          <div class="form-group">
+            <label for="sesi">Sesi (Selesai/Belum Selesai)</label>
+            <select class="form-select" aria-label="Default select example" id="sesi" name="sesi" class="form-control" value="{{$temujanji->sesi}}">
+                <option selected>Pilih</option>
+                <option value="Selesai">Sesi Selesai</option>
+                <option value="Belum Selesai">Sesi Belum Selesai</option>
+              </select>
+          </div>
+
         <button class="btn btn-primary" type="submit"> Hantar </button>
         <a href="{{route('pengesahan.index')}}" class="btn btn-secondary"> Kembali </a>
       </form>

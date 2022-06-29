@@ -27,8 +27,32 @@
           <input type="text" id="nama_klien" name="nama_klien" class="form-control" value= "{{ Auth::user()->name }}" readonly/>
         </div>
 
+
         <div class="form-group">
-          <label for="masalah">Masalah</label>
+
+            <label for="Kes">Kategori Kes</label>
+            <select class="form-control" id="kategorikes" name="kategorikes" required focus>
+         <option value="" disabled selected>Sila Pilih Kategori</option>
+         @foreach($kes as $kes)
+         <option value="{{$kes->id}}">{{ $kes->nama_kes }}</option>
+         @endforeach
+             </select>
+
+         <div class="form-group">
+                <label for="nama_kes">Nama Kes</label>
+                <input type="text" id="nama_kes" name="nama_kes" class="form-control {{$errors->has('nama_kes') ?'is-invalid':''}}" value="{{ $kes->nama_kes }}"/>
+
+                @if($errors->has('nama_kes'))
+                <span class="help-block">
+                <strong>{{$errors->first('nama_kes')}}</strong>
+                </span>
+                @endif
+            </div>
+
+       <div class="form-group">
+
+        <div class="form-group">
+          <label for="masalah">Ulasan Masalah</label>
           <input type="text" id="masalah" name="masalah" class="form-control {{$errors->has('masalah') ?'is-invalid':''}}"/>
 
           @if($errors->has('masalah'))
@@ -77,6 +101,17 @@
             @if($errors->has('ulasankaunselor'))
             <span class="help-block">
             <strong>{{$errors->first('ulasankaunselor')}}</strong>
+            </span>
+            @endif
+          </div>
+
+          <div class="form-group">
+            <label for="sesi">Sesi</label>
+            <input type="text" id="sesi" name="sesi" class="form-control {{$errors->has('sesi') ?'is-invalid':''}}"  value="-" readonly/>
+
+            @if($errors->has('sesi'))
+            <span class="help-block">
+            <strong>{{$errors->first('sesi')}}</strong>
             </span>
             @endif
           </div>

@@ -35,31 +35,44 @@
   <body class="d-flex h-100 text-center text-white bg-dark">
 
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="mb-auto">
+
     <div>
-      <h3 class="float-md-start mb-0">Cover</h3>
       @if (Route::has('login'))
-      <nav class="nav nav-masthead justify-content-center float-md-end">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
         @auth
-        <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="{{ url('/home') }}">Home</a>
+        <a class="nav-link" aria-current="page" href="{{ url('/home') }}">Home</a>
+        </li>
        @else
-        <a class="nav-link fw-bold py-1 px-0" href="{{ route('login') }}">Login</a>
+       <li class="nav-item">
+        <a class="nav-link" href="{{ route('login') }}">Log Masuk</a>
+       </li>
 
         @if (Route::has('register'))
-        <a class="nav-link fw-bold py-1 px-0" href="{{ route('register') }}">Register</a>
+        <li class="nav-item">
+        <a class="nav-link" href="{{ route('register') }}">Mendaftar</a>
+        </li>
         @endif
         @endauth
-
-      </nav>
+    </ul>
       @endif
     </div>
+    <h3 class="float-md-start mb-0">Aplikasi Web Responsif Penasihatan Individu Berasaskan Kaunseling dan Psikologi Islam (eNasihat)</h3>
+  <header class="mb-auto">
+
+
+
   </header>
 
   <main class="px-3">
-    <h1>Cover your page.</h1>
-    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+    <div class="text-center">
+        <img  src="http://www.ukm.my/iceld2014/wp-content/uploads/2014/02/ukm.jpg" width="450"  >
+    </div>
+    <br>
+    <h1>eNasihat</h1>
+    <p class="lead">Aplikasi Web Responsif ini akan menyediakan perkhidmatan temujanji. Selain itu memudahkan para pengguna untuk mengenalpasti solusi bagi masalah atau kes yang dihadapi.</p>
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
+
     </p>
   </main>
 

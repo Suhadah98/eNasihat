@@ -13,10 +13,21 @@ class PengesahanController extends Controller
     {
         $temujanjis=Temujanji::latest()->where('status','=',"-")->get();
 
-        $temujanjis2=Temujanji::latest()->where('status','=',"Tunda")->where('nama_kaunselor','=',Auth::user()->name)->get();
+        $temujanjis2=Temujanji::latest()->where('status','=',"Tukar")->where('nama_kaunselor','=',Auth::user()->name)->get();
 
         $temujanjis1=Temujanji::latest()->where('status','=',"Setuju")->where('nama_kaunselor','=',Auth::user()->name)->get();
         return view('pengesahan.index',compact('temujanjis','temujanjis1','temujanjis2'));
+    }
+
+    public function index1()
+    {
+        $temujanjis=Temujanji::latest()->where('status','=',"-")->get();
+
+        $temujanjis2=Temujanji::latest()->where('status','=',"Tukar")->where('nama_kaunselor','=',Auth::user()->name)->get();
+
+        $temujanjis1=Temujanji::latest()->where('status','=',"Setuju")->where('nama_kaunselor','=',Auth::user()->name)->get();
+
+        return view('semakankaunselor.index',compact('temujanjis','temujanjis1','temujanjis2'));
     }
 
     public function show(Temujanji $temujanji)
@@ -32,6 +43,7 @@ class PengesahanController extends Controller
             'status'=>'required',
             'nama_kaunselor'=>'required',
             'ulasankaunselor'=>'required',
+            'sesi'=>'required',
 
         ]);
 
@@ -39,8 +51,35 @@ class PengesahanController extends Controller
         $temujanji->status = request('status');
         $temujanji->nama_kaunselor = request('nama_kaunselor');
         $temujanji->ulasankaunselor = request('ulasankaunselor');
+        $temujanji->sesi = request('sesi');
         $temujanji->save();
 
         return redirect()->route('pengesahan.index');
+    }
+    public function show1(Temujanji $temujanji)
+    {
+
+        return view('semakankaunselor.show',compact('temujanji'));
+    }
+    public function update1(Request $request, Temujanji $temujanji)
+    {
+        $request->validate([
+
+            'tarikh'=>'required',
+            'status'=>'required',
+            'nama_kaunselor'=>'required',
+            'ulasankaunselor'=>'required',
+            'sesi'=>'required',
+
+        ]);
+
+        $temujanji->tarikh=request('tarikh');
+        $temujanji->status = request('status');
+        $temujanji->nama_kaunselor = request('nama_kaunselor');
+        $temujanji->ulasankaunselor = request('ulasankaunselor');
+        $temujanji->sesi = request('sesi');
+        $temujanji->save();
+
+        return redirect()->route('semakankaunselor.index');
     }
 }

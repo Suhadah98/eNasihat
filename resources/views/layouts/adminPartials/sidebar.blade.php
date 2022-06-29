@@ -7,6 +7,7 @@
               Pengesahan
             </a>
           </li>
+
           <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{route('daftar.create')}}">
               <span data-feather="edit-2"></span>
@@ -20,17 +21,18 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{route('kes.create')}}">
+            <a class="nav-link active" aria-current="page" href="{{route('kes.index')}}">
               <span data-feather="shopping-cart"></span>
-              Penambahan Kes
+              Senarai Kes
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{route('sejarahkaunselor')}}">
+            <a class="nav-link active" aria-current="page" href="{{route('sejarahadmin')}}">
               <span data-feather="shopping-cart"></span>
               Sejarah Klien
             </a>
           </li>
+
 
         </ul>
       </div>

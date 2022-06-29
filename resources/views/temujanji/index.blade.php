@@ -27,6 +27,7 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Nama Klien</th>
+              <th scope="col">Nama Kes</th>
               <th scope="col">Masalah</th>
               <th scope="col">Tarikh</th>
               <th scope="col">Status</th>
@@ -41,6 +42,7 @@
             <tr>
               <td>{{$temujanji->id}}</td>
               <td>{{$temujanji->nama_klien}}</td>
+              <td>{{$temujanji->nama_kes}}</td>
               <td>{{$temujanji->masalah}}</td>
               <td>{{$temujanji->tarikh}}</td>
               <td>{{$temujanji->status}}</td>
@@ -67,6 +69,7 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Nama Klien</th>
+                  <th scope="col">Nama Kes</th>
                   <th scope="col">Masalah</th>
                   <th scope="col">Tarikh</th>
                   <th scope="col">Status</th>
@@ -81,6 +84,7 @@
                 <tr>
                   <td>{{$temujanji->id}}</td>
                   <td>{{$temujanji->nama_klien}}</td>
+                  <td>{{$temujanji->nama_kes}}</td>
                   <td>{{$temujanji->masalah}}</td>
                   <td>{{$temujanji->tarikh}}</td>
                   <td>{{$temujanji->status}}</td>
@@ -107,6 +111,7 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Nama Klien</th>
+                  <th scope="col">Nama Kes</th>
                   <th scope="col">Masalah</th>
                   <th scope="col">Tarikh</th>
                   <th scope="col">Status</th>
@@ -120,6 +125,7 @@
                 <tr>
                   <td>{{$temujanji->id}}</td>
                   <td>{{$temujanji->nama_klien}}</td>
+                  <td>{{$temujanji->nama_kes}}</td>
                   <td>{{$temujanji->masalah}}</td>
                   <td>{{$temujanji->tarikh}}</td>
                   <td>{{$temujanji->status}}</td>

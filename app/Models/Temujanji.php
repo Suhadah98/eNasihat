@@ -9,5 +9,5 @@ class Temujanji extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama_klien','masalah','tarikh','status','nama_kaunselor','ulasan','ulasankaunselor'];
+    protected $fillable = ['nama_klien','masalah','tarikh','status','nama_kaunselor','ulasan','ulasankaunselor','kategorikes','nama_kes','sesi'];
 }

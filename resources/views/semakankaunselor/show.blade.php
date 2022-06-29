@@ -1,10 +1,10 @@
-@extends('layouts.main')
+@extends('layouts.Kaunselormain')
 
 @section('content')
 
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Temujanji</h1>
+        <h1 class="h2">Pengesahan</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -16,32 +16,7 @@
           </button>
         </div>
       </div>
-
-      <h2>Kategori Kes</h2>
-
-      <div class="table-responsive">
-
-      <a class="btn btn-primary" href="/temujanji/create" role="button">Membuat temujanji</a>
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Kategori Kes</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($kess as $kes)
-            <tr>
-              <td>{{$kes->id}}</td>
-              <td>{{$kes->nama_kes}}</td>
-            </tr>
-            @endforeach
-
-          </tbody>
-        </table>
-      </div>
-
-      <h1>Kemaskini Temujanji</h1>
+      <h1>Membuat Pengesahan</h1>
 
       <form action="" method="post">
         {{csrf_field() }}
@@ -60,20 +35,6 @@
         </div>
 
         <div class="form-group">
-            <label for="nama_klien">Kategori Kes</label>
-            <input type="text" id="kategorikes" name="kategorikes" class="form-control {{$errors->has('kategorikes') ?'is-invalid':''}}" value="{{ old('kategorikes',$temujanji->kategorikes) }}"readonly/>
-
-            @if($errors->has('kategorikes'))
-            <span class="help-block">
-
-            <strong>{{$errors->first('kategorikes')}}</strong>
-            </span>
-
-            @endif
-          </div>
-
-
-        <div class="form-group">
           <label for="masalah">Masalah</label>
           <input type="text" id="masalah" name="masalah" class="form-control {{$errors->has('masalah') ?'is-invalid':''}}" value="{{old('masalah',$temujanji->masalah) }}"/>
 
@@ -85,36 +46,47 @@
         </div>
 
         <div class="form-group">
-          <label for="tarikh">Tarikh dan Masa (Cadangan)</label>
-          <input type="datetime" id="tarikh" name="tarikh" class="form-control" placeholder="YYYY-MM-DD" value="{{$temujanji->tarikh}}" readonly/>
-        </div>
+            <label for="tarikh">Tarikh dan Masa (Cadangan)</label>
+            <input type="datetime" id="tarikh" name="tarikh" class="form-control" placeholder="YYYY-MM-DD" value="{{$temujanji->tarikh}}"/>
+          </div>
 
-          <div class="form-group">
+        <div class="form-group">
+            <label for="tarikh">Tarikh dan Masa (Kemaskini)</label>
+            <input type="datetime-local" id="tarikh" name="tarikh" class="form-control" placeholder="YYYY-MM-DD" value="{{$temujanji->tarikh}}"/>
+          </div>
+
+        <div class="form-group">
             <label for="status">Status</label>
-            <select class="form-select" aria-label="Default select example" id="status" name="status" class="form-control" value="{{$temujanji->status}}">
-              <option selected>Pilih</option>
-              <option value="Setuju">Setuju dengan tarikh</option>
-              <option value="Tukar">Meminta untuk menukar tarikh</option>
-            </select>
+            <input type="text" id="status" name="status" class="form-control" value="{{$temujanji->status}}" readonly/>
           </div>
 
           <div class="form-group">
             <label for="ulasan">Ulasan Klien</label>
-            <input type="text" id="ulasan" name="ulasan" class="form-control" value="{{$temujanji->ulasan}}"/>
+            <input type="text" id="ulasan" name="ulasan" class="form-control" value="{{$temujanji->ulasan}}" readonly/>
           </div>
+
 
         <div class="form-group">
           <label for="nama_kaunselor">Nama Kaunselor</label>
-          <input type="text" id="nama_kaunselor" name="nama_kaunselor" class="form-control" value="{{$temujanji->nama_kaunselor}}" readonly/>
+          <input type="text" id="nama_kaunselor" name="nama_kaunselor" class="form-control" value="{{ Auth::user()->name }}" readonly/>
         </div>
 
         <div class="form-group">
             <label for="ulasankaunselor">Ulasan Kaunselor</label>
-            <input type="text" id="ulasankaunselor" name="ulasankaunselor" class="form-control" value="{{$temujanji->ulasankaunselor}}" readonly/>
+            <input type="text" id="ulasankaunselor" name="ulasankaunselor" class="form-control" value="{{$temujanji->ulasankaunselor}}"/>
+          </div>
+
+          <div class="form-group">
+            <label for="sesi">Sesi (Selesai/Belum Selesai)</label>
+            <select class="form-select" aria-label="Default select example" id="sesi" name="sesi" class="form-control" value="{{$temujanji->sesi}}">
+                <option selected>Pilih</option>
+                <option value="Selesai">Sesi Selesai</option>
+                <option value="Belum Selesai">Sesi Belum Selesai</option>
+              </select>
           </div>
 
         <button class="btn btn-primary" type="submit"> Hantar </button>
-        <a href="{{route('temujanji.index')}}" class="btn btn-secondary"> Kembali </a>
+        <a href="{{route('semakankaunselor.index')}}" class="btn btn-secondary"> Kembali </a>
       </form>
     </main>
 @endsection

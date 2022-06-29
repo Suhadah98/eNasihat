@@ -11,8 +11,6 @@ class Kes extends Model
 
     public $kes;
 
-
-
     protected $fillable = ['nama_kes'];
 
     public function simptoms()
