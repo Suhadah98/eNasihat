@@ -57,11 +57,14 @@ class HomeController extends Controller
         $jumlahklientunda=DB::table('temujanjis')->where('status', '=', "Tunda")->count();;
         $jumlahklienselesai=DB::table('temujanjis')->where('status', '=', "Selesai")->count();;
 
-        $temujanjis = Temujanji::selectRaw('tarikh as date,COUNT(*) as count')->groupBy('date')->get();
+        $temujanjis = Temujanji::select(DB::raw("(COUNT(*)) as count"),DB::raw("MONTHNAME(tarikh) as monthname"))
+        ->whereYear('tarikh', date('Y'))
+        ->groupBy('monthname')
+        ->get();
 
-        $result[] = ['tarikh', 'Jumlah pengguna'];
+        $result[] = ['Bulan', 'Jumlah pengguna'];
         foreach ($temujanjis as $temujanji) {
-            $result[] = [$temujanji->date,$temujanji->count];
+            $result[] = [$temujanji->monthname,$temujanji->count];
         }
         $data = [
             'temujanjis' => json_encode($result),
