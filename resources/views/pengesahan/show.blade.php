@@ -23,7 +23,7 @@
 
         <div class="form-group">
           <label for="nama_klien">Nama Klien</label>
-          <input type="text" id="nama_klien" name="nama_klien" class="form-control {{$errors->has('nama_klien') ?'is-invalid':''}}" value="{{ old('nama_klien',$temujanji->nama_klien) }}"/>
+          <input type="text" id="nama_klien" name="nama_klien" class="form-control {{$errors->has('nama_klien') ?'is-invalid':''}}" value="{{ old('nama_klien',$temujanji->nama_klien) }}" readonly/>
 
           @if($errors->has('nama_klien'))
           <span class="help-block">
@@ -36,7 +36,7 @@
 
         <div class="form-group">
           <label for="masalah">Masalah</label>
-          <input type="text" id="masalah" name="masalah" class="form-control {{$errors->has('masalah') ?'is-invalid':''}}" value="{{old('masalah',$temujanji->masalah) }}"/>
+          <input type="text" id="masalah" name="masalah" class="form-control {{$errors->has('masalah') ?'is-invalid':''}}" value="{{old('masalah',$temujanji->masalah) }}" readonly/>
 
           @if($errors->has('masalah'))
           <span class="help-block">
@@ -78,10 +78,10 @@
 
           <div class="form-group">
             <label for="sesi">Sesi (Selesai/Belum Selesai)</label>
-            <select class="form-select" aria-label="Default select example" id="sesi" name="sesi" class="form-control" value="{{$temujanji->sesi}}">
-                <option selected>Pilih</option>
-                <option value="Selesai">Sesi Selesai</option>
-                <option value="Belum Selesai">Sesi Belum Selesai</option>
+            <select class="form-select" aria-label="Default select example" id="sesi" name="sesi" class="form-control" >
+                <option selected>Pilihan</option>
+                <option value="Selesai" {{($temujanji->sesi === 'Selesai') ? 'Selected' : ''}}>Selesai</option>
+                <option value="Belum Selesai" {{($temujanji->sesi === 'Belum Selesai') ? 'Selected' : ''}}>Belum Selesai</option>
               </select>
           </div>
 

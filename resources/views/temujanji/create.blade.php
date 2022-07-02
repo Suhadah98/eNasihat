@@ -37,16 +37,19 @@
          <option value="{{$kes->id}}">{{ $kes->nama_kes }}</option>
          @endforeach
              </select>
+        </div>
 
-         <div class="form-group">
-                <label for="nama_kes">Nama Kes</label>
-                <input type="text" id="nama_kes" name="nama_kes" class="form-control {{$errors->has('nama_kes') ?'is-invalid':''}}" value="{{ $kes->nama_kes }}"/>
+        <div class="form-group">
 
-                @if($errors->has('nama_kes'))
-                <span class="help-block">
-                <strong>{{$errors->first('nama_kes')}}</strong>
-                </span>
-                @endif
+            <div class="form-group">
+
+              <input type="hidden" id="nama_kes" name="nama_kes" class="form-control {{$errors->has('nama_kes') ?'is-invalid':''}}" value="-" readonly/>
+
+              @if($errors->has('nama_kes'))
+              <span class="help-block">
+              <strong>{{$errors->first('nama_kes')}}</strong>
+              </span>
+              @endif
             </div>
 
        <div class="form-group">

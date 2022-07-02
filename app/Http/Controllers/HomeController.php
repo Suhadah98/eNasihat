@@ -54,15 +54,15 @@ class HomeController extends Controller
 
         $jumlahklien=DB::table('users')->where('user_type', '=', '')->orWhereNull('user_type')->count();;
         $jumlahkliensetuju=DB::table('temujanjis')->where('status', '=', "Setuju")->count();;
-        $jumlahklientunda=DB::table('temujanjis')->where('status', '=', "Tunda")->count();;
-        $jumlahklienselesai=DB::table('temujanjis')->where('status', '=', "Selesai")->count();;
+        $jumlahklientunda=DB::table('temujanjis')->where('status', '=', "Tukar")->count();;
+        $jumlahklienselesai=DB::table('temujanjis')->where('sesi', '=', "Selesai")->count();;
 
         $temujanjis = Temujanji::select(DB::raw("(COUNT(*)) as count"),DB::raw("MONTHNAME(tarikh) as monthname"))
         ->whereYear('tarikh', date('Y'))
         ->groupBy('monthname')
         ->get();
 
-        $result[] = ['Bulan', 'Jumlah pengguna'];
+        $result[] = ['Bulan', 'Jumlah temujanji'];
         foreach ($temujanjis as $temujanji) {
             $result[] = [$temujanji->monthname,$temujanji->count];
         }
@@ -93,14 +93,18 @@ class HomeController extends Controller
     {
         $jumlahklien=DB::table('users')->where('user_type', '=', '')->orWhereNull('user_type')->count();;
         $jumlahkliensetuju=DB::table('temujanjis')->where('status', '=', "Setuju")->count();;
-        $jumlahklientunda=DB::table('temujanjis')->where('status', '=', "Tunda")->count();;
-        $jumlahklienselesai=DB::table('temujanjis')->where('status', '=', "Selesai")->count();;
+        $jumlahklientunda=DB::table('temujanjis')->where('status', '=', "Tukar")->count();;
+        $jumlahklienselesai=DB::table('temujanjis')->where('sesi', '=', "Selesai")->count();;
 
-        $temujanjis = Temujanji::selectRaw('tarikh as date,COUNT(*) as count')->groupBy('date')->get();
 
-        $result[] = ['tarikh', 'Jumlah pengguna'];
+        $temujanjis = Temujanji::select(DB::raw("(COUNT(*)) as count"),DB::raw("MONTHNAME(tarikh) as monthname"))
+        ->whereYear('tarikh', date('Y'))
+        ->groupBy('monthname')
+        ->get();
+
+        $result[] = ['Bulan', 'Jumlah temujanji'];
         foreach ($temujanjis as $temujanji) {
-            $result[] = [$temujanji->date,$temujanji->count];
+            $result[] = [$temujanji->monthname,$temujanji->count];
         }
         $data = [
             'temujanjis' => json_encode($result),

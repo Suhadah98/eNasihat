@@ -21,7 +21,7 @@
 
       <div class="table-responsive">
 
-      <a class="btn btn-primary" href="/temujanji/create" role="button">Membuat temujanji</a>
+
         <table class="table table-striped table-sm">
           <thead>
             <tr>
@@ -91,10 +91,10 @@
 
           <div class="form-group">
             <label for="status">Status</label>
-            <select class="form-select" aria-label="Default select example" id="status" name="status" class="form-control" value="{{$temujanji->status}}">
-              <option selected>Pilih</option>
-              <option value="Setuju">Setuju dengan tarikh</option>
-              <option value="Tukar">Meminta untuk menukar tarikh</option>
+            <select class="form-select" aria-label="Default select example" id="status" name="status" class="form-control">
+                <option selected>Pilihan</option>
+                <option value="Setuju" {{($temujanji->status === 'Setuju') ? 'Selected' : ''}}>Setuju</option>
+                <option value="Tukar" {{($temujanji->status === 'Tukar') ? 'Selected' : ''}}>Tukar</option>
             </select>
           </div>
 

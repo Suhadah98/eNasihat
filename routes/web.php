@@ -50,6 +50,8 @@ Route::get('/search','App\Http\Controllers\CarianController@search')->name('sear
 
 Route::get('/searchkaunselor','App\Http\Controllers\CarianController@searchkaunselor')->name('searchkaunselor');
 
+Route::get('/senaraikaunselor','App\Http\Controllers\KaunselorController@index')->name('senaraikaunselor');
+
 Route::get('/searchklien','App\Http\Controllers\CarianController@searchklien')->name('searchklien');
 
 Route::get('/simpan','App\Http\Controllers\CarianController@index')->name('simpan.index');

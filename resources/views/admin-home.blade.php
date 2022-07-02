@@ -80,7 +80,7 @@
           <div class="inner">
           <i class="nav-icon fas fa-check"></i> <h3>{{$jumlahkliensetuju}}<sup style="font-size: 20px"></sup></h3>
 
-            <p>Jumlah Klien Setuju</p>
+            <p>Jumlah Temujanji Setuju</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
@@ -95,7 +95,7 @@
           <div class="inner">
             <h3>{{$jumlahklientunda}}<sup style="font-size: 20px"></sup></h3>
 
-            <p>Jumlah Klien Tunda</p>
+            <p>Jumlah Temujanji Tunda</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
@@ -110,7 +110,7 @@
           <div class="inner">
             <h3>{{$jumlahklienselesai}}<sup style="font-size: 20px"></sup></h3>
 
-            <p>Jumlah Klien Sudah Selesai</p>
+            <p>Jumlah Temujanji Sudah Selesai</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
@@ -144,8 +144,8 @@
                 var data = google.visualization.arrayToDataTable({!! $temujanjis !!});
                 var options = {
                     chart: {
-                        title: 'Bar Graph | User Registration',
-                        subtitle: 'Day Wise User Registration',
+                        title: 'Graf Bar bagi Jumlah Klien mengikut Bulan',
+
                     },
                     bars: 'vertical'
                 };

@@ -104,11 +104,9 @@
                 <th scope="col">#</th>
                 <th scope="col">Nama Klien</th>
                 <th scope="col">Masalah</th>
-                <th scope="col">Tarikh dan Masa (Cadangan)</th>
-                <th scope="col">Status</th>
-                <th scope="col">Ulasan Klien</th>
+                <th scope="col">Sesi</th>
                 <th scope="col">Nama Kaunselor</th>
-                <th scope="col">Ulasan Kaunselor</th>
+                <th scope="col">Tindakan</th>
               </tr>
           </thead>
           <tbody>
@@ -117,11 +115,11 @@
                 <td>{{$temujanji->id}}</td>
                 <td>{{$temujanji->nama_klien}}</td>
                 <td>{{$temujanji->masalah}}</td>
-                <td>{{$temujanji->tarikh}}</td>
-                <td>{{$temujanji->status}}</td>
-                <td>{{$temujanji->ulasan}}</td>
+                <td>{{$temujanji->sesi}}</td>
                 <td>{{$temujanji->nama_kaunselor}}</td>
-                <td>{{$temujanji->ulasankaunselor}}</td>
+                <td>
+                    <a href="/semakankaunselor/{{$temujanji->id}}" class="btn btn-primary">Semakan Kaunselor</a>
+                  </td>
             </tr>
             @endforeach
           </tbody>

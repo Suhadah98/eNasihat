@@ -13,6 +13,14 @@
               Ruangan Solusi
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route('senaraikaunselor')}}">
+              <span data-feather="shopping-cart"></span>
+              Senarai Kaunselor
+            </a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('simpan.index')}}">
               <span data-feather="shopping-cart"></span>
