@@ -19,14 +19,16 @@
 
       <h2>Semakan Masalah</h2>
 
+      <div class="card">
       <div class="table-responsive">
 
-        <table class="table table-striped table-sm">
+        <table class="table table-striped table-sm table-bordered">
           <thead>
             <tr>
               <th scope="col">Nama</th>
               <th scope="col">Kes ID</th>
               <th scope="col">Nama Kes</th>
+              <th scope="col">Tindakan</th>
             </tr>
           </thead>
           <tbody>
@@ -43,6 +45,7 @@
             @endforeach
           </tbody>
         </table>
+      </div>
       </div>
 
       @if (Request::input('kes'))

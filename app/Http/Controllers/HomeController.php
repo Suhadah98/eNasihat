@@ -30,7 +30,7 @@ class HomeController extends Controller
         $temujanjis=Temujanji::latest()->where('status','=','setuju')->where('nama_klien','=',Auth::user()->name)
         ->where('sesi','=','Belum Selesai')->get();
 
-        $kes=Kes::latest()->get();
+        $kes=Kes::paginate(1);
 
         $data2 = DB::table('temujanjis')
         ->select(

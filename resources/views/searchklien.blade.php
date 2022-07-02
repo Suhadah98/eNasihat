@@ -125,8 +125,6 @@
                 <table class="table ">
                     <thead>
                         <tr>
-
-                            <th scope="col"></th>
                             <th scope="col"></th>
 
                         </tr>
@@ -135,7 +133,6 @@
                     <tbody>
                         @foreach ($kes1 as $kes1 )
                             <tr>
-                                <td>{{ $kes1->id }}</td>
                                 <td>{{ $kes1->nama_kes }}</td>
                                 <td>
 

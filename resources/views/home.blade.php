@@ -88,14 +88,21 @@
             </tr>
           </thead>
           <tbody>
-              @foreach($kes as $kes)
+              @foreach($kes as $kess)
             <tr>
-              <td>{{$kes->id}}</td>
-              <td>{{$kes->nama_kes}}</td>
+              <td>{{$kess->id}}</td>
+              <td>{{$kess->nama_kes}}</td>
             </tr>
             @endforeach
+
           </tbody>
+
         </table>
+        <span>
+            {{$kes->links() }}
+        </span>
+
+
       </div>
 
         <div class="container">
@@ -115,3 +122,8 @@
         </div>
     </main>
 @endsection
+<style>
+    .w-5{
+        display:none
+    }
+</style>

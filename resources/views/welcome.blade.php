@@ -38,25 +38,27 @@
 
     <div>
       @if (Route::has('login'))
-      <ul class="nav nav-pills">
+      <ul class="nav nav-tabs ">
         <li class="nav-item">
         @auth
-        <a class="nav-link" aria-current="page" href="{{ url('/home') }}">Home</a>
+        <a class="nav-link fw-bold " aria-current="page" href="{{ url('/home') }}">Halaman Utama</a>
         </li>
        @else
        <li class="nav-item">
-        <a class="nav-link" href="{{ route('login') }}">Log Masuk</a>
+        <a class="nav-link fw-bold" href="{{ route('login') }}">Log Masuk</a>
        </li>
 
         @if (Route::has('register'))
         <li class="nav-item">
-        <a class="nav-link" href="{{ route('register') }}">Mendaftar</a>
+        <a class="nav-link fw-bold" href="{{ route('register') }}">Mendaftar</a>
         </li>
         @endif
         @endauth
     </ul>
       @endif
+
     </div>
+    <br>
     <h3 class="float-md-start mb-0">Aplikasi Web Responsif Penasihatan Individu Berasaskan Kaunseling dan Psikologi Islam (eNasihat)</h3>
   <header class="mb-auto">
 
@@ -77,7 +79,7 @@
   </main>
 
   <footer class="mt-auto text-white-50">
-    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+    <p>eNasihat 2022</p>
   </footer>
 </div>
 

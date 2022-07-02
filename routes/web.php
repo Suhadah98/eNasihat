@@ -7,7 +7,6 @@ Route::get('/', function () {
 });
 
 
-
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/kaunselor/home', [App\Http\Controllers\HomeController::class, 'kaunselorHome'])->name('kaunselor.home')->middleware('is_kaunselor');

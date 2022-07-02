@@ -17,4 +17,5 @@
 </div>
     @include('layouts.kaunselorPartials.scripts')
   </body>
+  @include('layouts.partials.footer')
 </html>
