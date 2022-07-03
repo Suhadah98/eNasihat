@@ -123,7 +123,10 @@ Route::post('/solusikaunselor/delete/{solusis}','App\Http\Controllers\SolusiCont
 
 Route::get('/solusikaunselor/{solusis}','App\Http\Controllers\SolusiController@show1')->name('solusikaunselor.show');
 
+Route::get('/video','App\Http\Controllers\VideoController@getVideoUploadForm')->name('video.index');
+Route::post('/video','App\Http\Controllers\VideoController@uploadVideo')->name('store.video');
 
+Route::get('/video/show','App\Http\Controllers\VideoController@get_index')->name('video.show');
 
 Auth::routes();
 
