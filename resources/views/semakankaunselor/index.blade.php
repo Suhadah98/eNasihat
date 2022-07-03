@@ -19,12 +19,12 @@
 
       <h2>Membuat Pengesahan</h2>
 
+      <div class="card">
       <div class="table-responsive">
 
-        <table class="table table-striped table-sm">
+        <table class="table table-striped table-sm table-bordered">
           <thead>
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Nama Klien</th>
               <th scope="col">Masalah</th>
               <th scope="col">Tarikh dan Masa (Cadangan)</th>
@@ -36,9 +36,9 @@
             </tr>
           </thead>
           <tbody>
+            @if(!empty($temujanjis) && $temujanjis->count())
               @foreach($temujanjis as $temujanji)
             <tr>
-              <td>{{$temujanji->id}}</td>
               <td>{{$temujanji->nama_klien}}</td>
               <td>{{$temujanji->masalah}}</td>
               <td>{{$temujanji->tarikh}}</td>
@@ -51,18 +51,26 @@
               </td>
             </tr>
             @endforeach
+            @else
+                <tr>
+                    <td colspan="10">Tiada rekod.</td>
+                </tr>
+            @endif
           </tbody>
         </table>
       </div>
+      </div>
+      <br><br>
 
       <h2>Membuat Pengesahan</h2>
 
+      <div class="card">
       <div class="table-responsive">
 
-        <table class="table table-striped table-sm">
+        <table class="table table-striped table-sm table-bordered">
           <thead>
             <tr>
-              <th scope="col">#</th>
+
               <th scope="col">Nama Klien</th>
               <th scope="col">Masalah</th>
               <th scope="col">Tarikh dan Masa (Cadangan)</th>
@@ -74,9 +82,10 @@
             </tr>
           </thead>
           <tbody>
+            @if(!empty($temujanjis2) && $temujanjis2->count())
               @foreach($temujanjis2 as $temujanji)
             <tr>
-              <td>{{$temujanji->id}}</td>
+
               <td>{{$temujanji->nama_klien}}</td>
               <td>{{$temujanji->masalah}}</td>
               <td>{{$temujanji->tarikh}}</td>
@@ -89,19 +98,26 @@
               </td>
             </tr>
             @endforeach
+            @else
+                <tr>
+                    <td colspan="10">Tiada rekod.</td>
+                </tr>
+            @endif
           </tbody>
         </table>
       </div>
+      </div>
+      <br><br>
       <h2>Semakan Temujanji</h2>
 
 
-
+      <div class="card">
       <div class="table-responsive">
 
-        <table class="table table-striped table-sm">
+        <table class="table table-striped table-sm table-bordered">
           <thead>
             <tr>
-                <th scope="col">#</th>
+
                 <th scope="col">Nama Klien</th>
                 <th scope="col">Masalah</th>
                 <th scope="col">Sesi</th>
@@ -110,9 +126,10 @@
               </tr>
           </thead>
           <tbody>
+            @if(!empty($temujanjis1) && $temujanjis1->count())
               @foreach($temujanjis1 as $temujanji)
             <tr>
-                <td>{{$temujanji->id}}</td>
+
                 <td>{{$temujanji->nama_klien}}</td>
                 <td>{{$temujanji->masalah}}</td>
                 <td>{{$temujanji->sesi}}</td>
@@ -122,8 +139,14 @@
                   </td>
             </tr>
             @endforeach
+            @else
+            <tr>
+                <td colspan="10">Tiada rekod.</td>
+            </tr>
+            @endif
           </tbody>
         </table>
+      </div>
       </div>
     </main>
 @endsection

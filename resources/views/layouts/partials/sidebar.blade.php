@@ -13,7 +13,12 @@
               Ruangan Solusi
             </a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route('video.show')}}">
+              <span data-feather="file"></span>
+              Ruangan Ilmu Tambahan
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('senaraikaunselor')}}">
               <span data-feather="shopping-cart"></span>

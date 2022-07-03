@@ -14,6 +14,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route('video.index')}}">
+              <span data-feather="shopping-cart"></span>
+              Ruang Memuatnaik Maklumat
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('keskaunselor.index')}}">
               <span data-feather="shopping-cart"></span>
               Senarai Kes

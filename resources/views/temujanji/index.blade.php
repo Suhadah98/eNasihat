@@ -67,6 +67,7 @@
         </table>
       </div>
       </div>
+      <br><br>
 
       <h2>Semakan Temujanji</h2>
 
@@ -113,6 +114,7 @@
         </table>
       </div>
       </div>
+      <br><br>
 
       <h2>Semakan Temujanji</h2>
 

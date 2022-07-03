@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use EmbedServiceProvider;
 
 class video extends Model
 {
@@ -13,22 +14,14 @@ class video extends Model
         'tajuk', 'penerangan','url'
     ];
 
-    function YoutubeID($url)
+    public function getVideoHtmlAttribute()
     {
-        if(strlen($url) > 11)
-        {
-            if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
-            {
-                return $match[1];
-            }
-            else
-                return false;
-        }
+        $embed = Embed::make($this->video)->parseUrl();
 
-        return $url;
-    }
-    public function setKeyAttribute($value)
-    {
-      $this->attributes['url'] = $this->youtubeId($value);
+        if (!$embed)
+            return '';
+
+        $embed->setAttribute(['width' => 400]);
+        return $embed->getHtml();
     }
 }

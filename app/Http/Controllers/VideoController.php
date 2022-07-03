@@ -6,6 +6,7 @@ use View;
 use App\Models\video;
 use DB;
 use Illuminate\Http\Request;
+use Cohensive\Embed\Facades\Embed;
 
 class VideoController extends Controller
 {
@@ -39,23 +40,5 @@ class VideoController extends Controller
         ->with('tajuk', 'Videos')
         ->with('videos', $videos);
     }
-    public function setKeyAttribute($value)
-  {
-    $this->attributes['url'] = $this->youtubeId($value);
-  }
 
-  function YoutubeID($url)
-    {
-        if(strlen($url) > 11)
-        {
-            if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
-            {
-                return $match[1];
-            }
-            else
-                return false;
-        }
-
-        return $url;
-    }
 }

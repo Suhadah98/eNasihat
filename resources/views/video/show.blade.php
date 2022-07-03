@@ -1,4 +1,4 @@
-@extends('layouts.Kaunselormain')
+@extends('layouts.main')
 
 @section('content')
 
@@ -19,12 +19,14 @@
 
 
 @foreach ($videos as $video)
-    <h4>{{ $video->tajuk}}</h4>
+    <h2>{{ $video->tajuk}}</h2>
+    <br>
+    <h5>{{ $video->penerangan}}</h5>
     <br>
     <div class="media">
-            <div class="media-body">
-                {!! Embed::make($video->url)->parseUrl()->getIframe() !!}
-            </div>
+        <div class="media-body">
+            {!! Embed::make($video->url)->parseUrl()->getIframe() !!}
+        </div>
     </div>
     <br>
 @endforeach
