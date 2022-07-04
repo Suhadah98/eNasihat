@@ -9,7 +9,7 @@ class KaunselorController extends Controller
 {
     public function index()
     {
-        $users=User::latest()->where('user_type','=','Kaunselor')->paginate(1);
+        $users=User::latest()->where('user_type','=','Kaunselor')->paginate(10);
 
 
             return view('senaraikaunselor',compact('users'));

@@ -30,7 +30,7 @@ class HomeController extends Controller
         $temujanjis=Temujanji::latest()->where('status','=','setuju')->where('nama_klien','=',Auth::user()->name)
         ->where('sesi','=','Belum Selesai')->get();
 
-        $kes=Kes::paginate(1);
+        $kes=Kes::paginate(5);
 
         $data2 = DB::table('temujanjis')
         ->select(
@@ -70,7 +70,7 @@ class HomeController extends Controller
             'temujanjis' => json_encode($result),
         ];
 
-        $kes=Kes::paginate(1);
+        $kes=Kes::paginate(5);
 
         $data1 = DB::table('temujanjis')
         ->select(

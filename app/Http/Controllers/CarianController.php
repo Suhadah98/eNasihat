@@ -41,7 +41,7 @@ class CarianController extends Controller
        $selectedKes = $request->get('kes');
        $selectedKes1 = $request->get('kes');
 
-       $kes = DB::table('kes')->where('nama_kes','like','%'.$search.'%')->paginate(1);
+       $kes = DB::table('kes')->where('nama_kes','like','%'.$search.'%')->paginate(5);
        $kes->appends($request->all());
 
        $simptoms = DB::table('kes')
@@ -67,7 +67,7 @@ class CarianController extends Controller
        $selectedKes = $request->get('kes');
        $selectedKes1 = $request->get('kes');
 
-       $kes = DB::table('kes')->where('nama_kes','like','%'.$search.'%')->paginate(1);
+       $kes = DB::table('kes')->where('nama_kes','like','%'.$search.'%')->paginate(5);
        $kes->appends($request->all());
 
        $simptoms = DB::table('kes')
@@ -92,7 +92,7 @@ class CarianController extends Controller
        $selectedKes = $request->get('kes');
        $selectedKes1 = $request->get('kes');
 
-       $kes = DB::table('kes')->where('nama_kes','like','%'.$search.'%')->paginate(2);
+       $kes = DB::table('kes')->where('nama_kes','like','%'.$search.'%')->paginate(5);
 
        $kes1 = DB::table('kes')
        ->where('kes.id','=',$selectedKes)

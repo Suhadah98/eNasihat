@@ -11,9 +11,9 @@ class KesController extends Controller
 {
     public function index()
     {
-        $kes=Kes::latest()->get();
-        $simptoms=Simptom::latest()->get();
-        $solusis=Solusi::latest()->get();
+        $kes=Kes::latest()->paginate(5);
+        $simptoms=Simptom::latest()->paginate(5);
+        $solusis=Solusi::latest()->paginate(5);
 
         return view('kes.index',compact('kes','simptoms','solusis'));
     }
@@ -126,9 +126,9 @@ class KesController extends Controller
 
     public function index1()
     {
-        $kes=Kes::latest()->get();
-        $simptoms=Simptom::latest()->get();
-        $solusis=Solusi::latest()->get();
+        $kes=Kes::latest()->paginate(5);
+        $simptoms=Simptom::latest()->paginate(5);
+        $solusis=Solusi::latest()->paginate(5);
 
         return view('keskaunselor.index',compact('kes','simptoms','solusis'));
     }

@@ -22,18 +22,21 @@
             </tr>
           </thead>
           <tbody>
-              @foreach($kes as $kes)
+              @foreach($kes as $kess)
             <tr>
-              <td>{{$kes->id}}</td>
-              <td>{{$kes->nama_kes}}</td>
+              <td>{{$kess->id}}</td>
+              <td>{{$kess->nama_kes}}</td>
               <td>
-                <a href="/kes/{{$kes->id}}" class="btn btn-primary">Kemaskini</a>
-                <a href="/kes/delete/{{$kes->id}}" class="btn btn-danger">Padam</a>
+                <a href="/kes/{{$kess->id}}" class="btn btn-primary">Kemaskini</a>
+                <a href="/kes/delete/{{$kess->id}}" class="btn btn-danger">Padam</a>
               </td>
             </tr>
             @endforeach
           </tbody>
         </table>
+        <span>
+            {{$kes->links()}}
+        </span>
       </div>
       </div>
       <br><br>
@@ -51,19 +54,22 @@
             </tr>
           </thead>
           <tbody>
-              @foreach($simptoms as $simptoms)
+              @foreach($simptoms as $simptom)
             <tr>
-              <td>{{$simptoms->id}}</td>
-              <td>{{$simptoms->simptom}}</td>
-              <td>{{$simptoms->kesID}}</td>
+              <td>{{$simptom->id}}</td>
+              <td>{{$simptom->simptom}}</td>
+              <td>{{$simptom->kesID}}</td>
               <td>
-                <a href="/simptom/{{$simptoms->id}}" class="btn btn-primary">Kemaskini</a>
-                <a href="/simptom/delete/{{$simptoms->id}}" class="btn btn-danger">Padam</a>
+                <a href="/simptom/{{$simptom->id}}" class="btn btn-primary">Kemaskini</a>
+                <a href="/simptom/delete/{{$simptom->id}}" class="btn btn-danger">Padam</a>
               </td>
             </tr>
             @endforeach
           </tbody>
         </table>
+        <span>
+            {{$simptoms->links() }}
+        </span>
       </div>
       </div>
       <br><br>
@@ -81,20 +87,28 @@
             </tr>
           </thead>
           <tbody>
-              @foreach($solusis as $solusis)
+              @foreach($solusis as $solusi)
             <tr>
-              <td>{{$solusis->solusiID}}</td>
-              <td>{{$solusis->solusi}}</td>
-              <td>{{$solusis->kesID}}</td>
+              <td>{{$solusi->solusiID}}</td>
+              <td>{{$solusi->solusi}}</td>
+              <td>{{$solusi->kesID}}</td>
               <td>
-                <a href="/solusi/{{$solusis->id}}" class="btn btn-primary">Kemaskini</a>
-                <a href="/solusi/delete/{{$solusis->id}}" class="btn btn-danger">Padam</a>
+                <a href="/solusi/{{$solusi->id}}" class="btn btn-primary">Kemaskini</a>
+                <a href="/solusi/delete/{{$solusi->id}}" class="btn btn-danger">Padam</a>
               </td>
             </tr>
             @endforeach
           </tbody>
         </table>
+        <span>
+            {{$solusis->links() }}
+        </span>
       </div>
       </div>
     </main>
 @endsection
+<style>
+    .w-5{
+        display:none
+    }
+</style>

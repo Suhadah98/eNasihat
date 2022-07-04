@@ -12,7 +12,7 @@ class SejarahController extends Controller
 {
     public function index(Request $request)
     {
-        $simpans=Simpan::paginate(1);
+        $simpans=Simpan::paginate(10);
 
         $selectedKes=$request->get('kes');
 
@@ -33,7 +33,7 @@ class SejarahController extends Controller
 
     public function index1(Request $request)
     {
-        $simpans=Simpan::paginate(1);
+        $simpans=Simpan::paginate(10);
 
         $selectedKes=$request->get('kes');
 
