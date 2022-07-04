@@ -7,6 +7,7 @@
 
             <div class="col-md-6">
                 <h1>Ruangan Solusi<h1>
+                    <h6>Anda dikehendaki untuk mengisi kata kunci sebelum menekan butang carian.<h6>
             </div>
             <div class="col-md-4">
                 <form action="/search" method="get">
@@ -27,6 +28,7 @@
             </div>
 
         </div>
+        <br><br>
         <div class="card">
             <div class="card-header">Kes</div>
             <div class="card-body">
@@ -48,7 +50,7 @@
                                 <td>{{ $kes->nama_kes }}</td>
                                 <td>
                                     <a href="{{ route('search', ['kes' => $kes->id]) }}"
-                                        class="btn btn-sm btn-secondary">Simptom dan Solusi</a>
+                                        class="btn btn-sm btn-primary">Simptom dan Solusi</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -59,6 +61,7 @@
                 @endif
             </div>
         </div>
+        <br><br>
 
         @if ($simptoms)
             <div class="card">
@@ -88,7 +91,7 @@
                 </div>
             </div>
         @endif
-
+            <br><br>
         @if ($solusis)
             <div class="card">
                 <div class="card-header">Solusi</div>

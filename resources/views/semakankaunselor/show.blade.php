@@ -79,7 +79,7 @@
           <div class="form-group">
             <label for="sesi">Penyelesaian Kes</label>
             <select class="form-select" aria-label="Default select example" id="sesi" name="sesi" class="form-control">
-                <option selected>Pilihan</option>
+                <option selected>Belum bermula</option>
                 <option value="Selesai" {{($temujanji->sesi === 'Selesai') ? 'Selected' : ''}}>Selesai</option>
                 <option value="Belum selesai" {{($temujanji->sesi === 'Belum selesai') ? 'Selected' : ''}}>Belum selesai</option>
             </select>

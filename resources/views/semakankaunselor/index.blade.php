@@ -4,20 +4,11 @@
 
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Semakan Temujanji</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-          </button>
-        </div>
+        <h1 class="h2">Temujanji</h1>
+
       </div>
 
-      <h2>Membuat Pengesahan</h2>
+      <h4>Penentuan Tarikh Temujanji</h4>
 
       <div class="card">
       <div class="table-responsive">
@@ -28,8 +19,6 @@
               <th scope="col">Nama Klien</th>
               <th scope="col">Masalah</th>
               <th scope="col">Tarikh dan Masa (Cadangan)</th>
-              <th scope="col">Status</th>
-              <th scope="col">Ulasan Klien</th>
               <th scope="col">Nama Kaunselor</th>
               <th scope="col">Ulasan Kaunselor</th>
               <th scope="col">Tindakan</th>
@@ -42,8 +31,6 @@
               <td>{{$temujanji->nama_klien}}</td>
               <td>{{$temujanji->masalah}}</td>
               <td>{{$temujanji->tarikh}}</td>
-              <td>{{$temujanji->status}}</td>
-              <td>{{$temujanji->ulasan}}</td>
               <td>{{$temujanji->nama_kaunselor}}</td>
               <td>{{$temujanji->ulasankaunselor}}</td>
               <td>
@@ -58,11 +45,14 @@
             @endif
           </tbody>
         </table>
+        <span>
+            {{$temujanjis->links() }}
+        </span>
       </div>
       </div>
       <br><br>
 
-      <h2>Membuat Pengesahan</h2>
+      <h4>Klien (Tukar tarikh)</h4>
 
       <div class="card">
       <div class="table-responsive">
@@ -76,8 +66,6 @@
               <th scope="col">Tarikh dan Masa (Cadangan)</th>
               <th scope="col">Status</th>
               <th scope="col">Ulasan Klien</th>
-              <th scope="col">Nama Kaunselor</th>
-              <th scope="col">Ulasan Kaunselor</th>
               <th scope="col">Tindakan</th>
             </tr>
           </thead>
@@ -91,8 +79,7 @@
               <td>{{$temujanji->tarikh}}</td>
               <td>{{$temujanji->status}}</td>
               <td>{{$temujanji->ulasan}}</td>
-              <td>{{$temujanji->nama_kaunselor}}</td>
-              <td>{{$temujanji->ulasankaunselor}}</td>
+
               <td>
                 <a href="/semakankaunselor/{{$temujanji->id}}" class="btn btn-primary">Semakan Kaunselor</a>
               </td>
@@ -105,10 +92,13 @@
             @endif
           </tbody>
         </table>
+        <span>
+            {{$temujanjis2->links() }}
+        </span>
       </div>
       </div>
       <br><br>
-      <h2>Semakan Temujanji</h2>
+      <h4>Sesi temujanji</h4>
 
 
       <div class="card">
@@ -146,7 +136,15 @@
             @endif
           </tbody>
         </table>
+        <span>
+            {{$temujanjis1->links() }}
+        </span>
       </div>
       </div>
     </main>
 @endsection
+<style>
+    .w-5{
+        display:none
+    }
+</style>

@@ -11,21 +11,21 @@ class PengesahanController extends Controller
     //
     public function index()
     {
-        $temujanjis=Temujanji::latest()->where('status','=',"-")->get();
+        $temujanjis=Temujanji::latest()->where('status','=',"-")->paginate(5);
 
-        $temujanjis2=Temujanji::latest()->where('status','=',"Tukar")->where('nama_kaunselor','=',Auth::user()->name)->get();
+        $temujanjis2=Temujanji::latest()->where('status','=',"Tukar")->where('nama_kaunselor','=',Auth::user()->name)->paginate(5);
 
-        $temujanjis1=Temujanji::latest()->where('status','=',"Setuju")->where('nama_kaunselor','=',Auth::user()->name)->get();
+        $temujanjis1=Temujanji::latest()->where('status','=',"Setuju")->where('nama_kaunselor','=',Auth::user()->name)->paginate(5);
         return view('pengesahan.index',compact('temujanjis','temujanjis1','temujanjis2'));
     }
 
     public function index1()
     {
-        $temujanjis=Temujanji::latest()->where('status','=',"-")->get();
+        $temujanjis=Temujanji::latest()->where('status','=',"-")->paginate(5);
 
-        $temujanjis2=Temujanji::latest()->where('status','=',"Tukar")->where('nama_kaunselor','=',Auth::user()->name)->get();
+        $temujanjis2=Temujanji::latest()->where('status','=',"Tukar")->where('nama_kaunselor','=',Auth::user()->name)->paginate(5);
 
-        $temujanjis1=Temujanji::latest()->where('status','=',"Setuju")->where('nama_kaunselor','=',Auth::user()->name)->get();
+        $temujanjis1=Temujanji::latest()->where('status','=',"Setuju")->where('nama_kaunselor','=',Auth::user()->name)->paginate(5);
 
         return view('semakankaunselor.index',compact('temujanjis','temujanjis1','temujanjis2'));
     }

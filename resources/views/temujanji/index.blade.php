@@ -5,23 +5,11 @@
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Temujanji</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-          </button>
-        </div>
       </div>
-
-
 
       <a class="btn btn-primary" href="/temujanji/create" role="button">Membuat temujanji</a>
       <br>
-      <h2>Semakan Temujanji</h2>
+      <h4>Penentuan Tarikh Temujanji</h4>
       <div class="card">
       <div class="table-responsive">
 
@@ -32,9 +20,7 @@
               <th scope="col">Nama Klien</th>
               <th scope="col">Nama Kes</th>
               <th scope="col">Masalah</th>
-              <th scope="col">Tarikh</th>
-              <th scope="col">Status</th>
-              <th scope="col">Ulasan Klien</th>
+              <th scope="col">Tarikh dan Masa (Cadangan)</th>
               <th scope="col">Nama Kaunselor</th>
               <th scope="col">Ulasan Kaunselor</th>
               <th scope="col">Tindakan</th>
@@ -48,8 +34,6 @@
               <td>{{$temujanji->nama_kes}}</td>
               <td>{{$temujanji->masalah}}</td>
               <td>{{$temujanji->tarikh}}</td>
-              <td>{{$temujanji->status}}</td>
-              <td>{{$temujanji->ulasan}}</td>
               <td>{{$temujanji->nama_kaunselor}}</td>
               <td>{{$temujanji->ulasankaunselor}}</td>
               <td>
@@ -69,7 +53,7 @@
       </div>
       <br><br>
 
-      <h2>Semakan Temujanji</h2>
+      <h4>Klien (Penukaran tarikh)</h4>
 
       <div class="card">
       <div class="table-responsive">
@@ -77,11 +61,9 @@
             <thead>
                 <tr>
                   <th scope="col">Nama Klien</th>
-                  <th scope="col">Nama Kes</th>
                   <th scope="col">Masalah</th>
-                  <th scope="col">Tarikh</th>
+                  <th scope="col">Tarikh dan Masa (Cadangan)</th>
                   <th scope="col">Status</th>
-                  <th scope="col">Ulasan Klien</th>
                   <th scope="col">Nama Kaunselor</th>
                   <th scope="col">Ulasan Kaunselor</th>
                   <th scope="col">Tindakan</th>
@@ -92,11 +74,9 @@
                   @foreach($temujanjis2 as $temujanji)
                 <tr>
                   <td>{{$temujanji->nama_klien}}</td>
-                  <td>{{$temujanji->nama_kes}}</td>
                   <td>{{$temujanji->masalah}}</td>
                   <td>{{$temujanji->tarikh}}</td>
                   <td>{{$temujanji->status}}</td>
-                  <td>{{$temujanji->ulasan}}</td>
                   <td>{{$temujanji->nama_kaunselor}}</td>
                   <td>{{$temujanji->ulasankaunselor}}</td>
                   <td>
@@ -116,7 +96,7 @@
       </div>
       <br><br>
 
-      <h2>Semakan Temujanji</h2>
+      <h2>Sesi Temujanji</h2>
 
       <div class="card">
       <div class="table-responsive">
@@ -124,13 +104,9 @@
             <thead>
                 <tr>
                   <th scope="col">Nama Klien</th>
-                  <th scope="col">Nama Kes</th>
                   <th scope="col">Masalah</th>
-                  <th scope="col">Tarikh</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Ulasan Klien</th>
+                  <th scope="col">Sesi</th>
                   <th scope="col">Nama Kaunselor</th>
-                  <th scope="col">Ulasan Kaunselor</th>
                 </tr>
               </thead>
               <tbody>
@@ -138,13 +114,9 @@
                   @foreach($temujanjis1 as $temujanji)
                 <tr>
                   <td>{{$temujanji->nama_klien}}</td>
-                  <td>{{$temujanji->nama_kes}}</td>
                   <td>{{$temujanji->masalah}}</td>
-                  <td>{{$temujanji->tarikh}}</td>
-                  <td>{{$temujanji->status}}</td>
-                  <td>{{$temujanji->ulasan}}</td>
+                  <td>{{$temujanji->sesi}}</td>
                   <td>{{$temujanji->nama_kaunselor}}</td>
-                  <td>{{$temujanji->ulasankaunselor}}</td>
                 </tr>
                 @endforeach
                 @else

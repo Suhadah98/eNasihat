@@ -53,9 +53,9 @@ class HomeController extends Controller
     {
 
         $jumlahklien=DB::table('users')->where('user_type', '=', '')->orWhereNull('user_type')->count();;
-        $jumlahkliensetuju=DB::table('temujanjis')->where('status', '=', "Setuju")->count();;
-        $jumlahklientunda=DB::table('temujanjis')->where('status', '=', "Tukar")->count();;
-        $jumlahklienselesai=DB::table('temujanjis')->where('sesi', '=', "Selesai")->count();;
+        $jumlahkliensetuju=DB::table('temujanjis')->where('status', '=', "Setuju")->where('nama_kaunselor','=',Auth::user()->name)->count();;
+        $jumlahklientunda=DB::table('temujanjis')->where('status', '=', "Tukar")->where('nama_kaunselor','=',Auth::user()->name)->count();;
+        $jumlahklienselesai=DB::table('temujanjis')->where('sesi', '=', "Selesai")->where('nama_kaunselor','=',Auth::user()->name)->count();;
 
         $temujanjis = Temujanji::select(DB::raw("(COUNT(*)) as count"),DB::raw("MONTHNAME(tarikh) as monthname"))
         ->whereYear('tarikh', date('Y'))
@@ -70,7 +70,7 @@ class HomeController extends Controller
             'temujanjis' => json_encode($result),
         ];
 
-        $kes=Kes::latest()->get();
+        $kes=Kes::paginate(1);
 
         $data1 = DB::table('temujanjis')
         ->select(
@@ -92,9 +92,9 @@ class HomeController extends Controller
     public function kaunselorHome()
     {
         $jumlahklien=DB::table('users')->where('user_type', '=', '')->orWhereNull('user_type')->count();;
-        $jumlahkliensetuju=DB::table('temujanjis')->where('status', '=', "Setuju")->count();;
-        $jumlahklientunda=DB::table('temujanjis')->where('status', '=', "Tukar")->count();;
-        $jumlahklienselesai=DB::table('temujanjis')->where('sesi', '=', "Selesai")->count();;
+        $jumlahkliensetuju=DB::table('temujanjis')->where('status', '=', "Setuju")->where('nama_kaunselor','=',Auth::user()->name)->count();;
+        $jumlahklientunda=DB::table('temujanjis')->where('status', '=', "Tukar")->where('nama_kaunselor','=',Auth::user()->name)->count();;
+        $jumlahklienselesai=DB::table('temujanjis')->where('sesi', '=', "Selesai")->where('nama_kaunselor','=',Auth::user()->name)->count();;
 
 
         $temujanjis = Temujanji::select(DB::raw("(COUNT(*)) as count"),DB::raw("MONTHNAME(tarikh) as monthname"))
@@ -110,7 +110,7 @@ class HomeController extends Controller
             'temujanjis' => json_encode($result),
         ];
 
-        $kes=Kes::latest()->get();
+        $kes=Kes::paginate(1);
 
         $data1 = DB::table('temujanjis')
         ->select(

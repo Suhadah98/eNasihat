@@ -12,8 +12,10 @@
       <div class="container mt-5">
          <div class="panel panel-primary">
             <div class="panel-heading">
-               <h2>Memuatnaik maklumat berkaitan kaunseling</h2>
+               <h1>Ruang Muatnaik Maklumat</h1>
+               <h6>Ruangan ini khas untuk memuatnaik video dari Youtube</h6>
             </div>
+            <br><br>
             <div class="panel-body">
                @if ($message = Session::get('success'))
                    <div class="alert alert-success alert-block">

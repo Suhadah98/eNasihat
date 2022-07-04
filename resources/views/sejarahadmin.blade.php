@@ -4,29 +4,21 @@
 
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Simpanan</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-          </button>
-        </div>
+        <h1 class="h2">Sejarah Klien</h1>
+
       </div>
 
-      <h2>Semakan Masalah</h2>
+      <h2>Semakan Sejarah</h2>
 
+      <div class="card">
       <div class="table-responsive">
-
         <table class="table table-striped table-sm">
           <thead>
             <tr>
               <th scope="col">Nama</th>
               <th scope="col">Kes ID</th>
               <th scope="col">Nama Kes</th>
+              <th scope="col">Tindakan</th>
             </tr>
           </thead>
           <tbody>
@@ -42,6 +34,10 @@
             @endforeach
           </tbody>
         </table>
+        <span>
+            {{$simpans->links() }}
+        </span>
+      </div>
       </div>
 
       @if (Request::input('kes'))
@@ -73,7 +69,7 @@
       </div>
 
 
-
+<br>
       <div class="card">
           <div class="card-header">Solusi</div>
           <div class="card-body">
