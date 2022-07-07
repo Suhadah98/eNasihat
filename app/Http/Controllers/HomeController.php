@@ -110,7 +110,7 @@ class HomeController extends Controller
             'temujanjis' => json_encode($result),
         ];
 
-        $kes=Kes::paginate(1);
+        $kes=Kes::paginate(5);
 
         $data1 = DB::table('temujanjis')
         ->select(

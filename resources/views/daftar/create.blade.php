@@ -24,7 +24,7 @@
         <br>
 
         <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email">Emel</label>
             <input type="email" class="form-control {{$errors->has('email') ?'is-invalid':''}}" id="email" name="email" >
 
             @if($errors->has('email'))
@@ -36,7 +36,7 @@
         </div>
         <br>
         <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Kata Laluan</label>
             <input type="password" class="form-control" id="password" name="password">
 
             @if($errors->has('password'))

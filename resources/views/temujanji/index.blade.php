@@ -18,7 +18,6 @@
           <thead>
             <tr>
               <th scope="col">Nama Klien</th>
-              <th scope="col">Nama Kes</th>
               <th scope="col">Masalah</th>
               <th scope="col">Tarikh dan Masa (Cadangan)</th>
               <th scope="col">Nama Kaunselor</th>
@@ -31,7 +30,6 @@
               @foreach($temujanjis as $temujanji)
             <tr>
               <td>{{$temujanji->nama_klien}}</td>
-              <td>{{$temujanji->nama_kes}}</td>
               <td>{{$temujanji->masalah}}</td>
               <td>{{$temujanji->tarikh}}</td>
               <td>{{$temujanji->nama_kaunselor}}</td>

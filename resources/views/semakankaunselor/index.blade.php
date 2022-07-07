@@ -52,6 +52,50 @@
       </div>
       <br><br>
 
+      <h2>Persetujuan Tarikh Temujanji</h2>
+
+      <div class="card">
+      <div class="table-responsive">
+        <table class="table table-striped table-sm tablle-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Nama Klien</th>
+              <th scope="col">Masalah</th>
+              <th scope="col">Tarikh dan Masa (Cadangan)</th>
+              <th scope="col">Nama Kaunselor</th>
+              <th scope="col">Ulasan Kaunselor</th>
+              <th scope="col">Tindakan</th>
+            </tr>
+          </thead>
+          <tbody>
+            @if(!empty($temujanjis3) && $temujanjis3->count())
+              @foreach($temujanjis3 as $temujanji)
+            <tr>
+              <td>{{$temujanji->nama_klien}}</td>
+              <td>{{$temujanji->masalah}}</td>
+              <td>{{$temujanji->tarikh}}</td>
+              <td>{{$temujanji->nama_kaunselor}}</td>
+              <td>{{$temujanji->ulasankaunselor}}</td>
+              <td>
+                <a href="/pengesahan/{{$temujanji->id}}" class="btn btn-primary">Pengesahan</a>
+              </td>
+            </tr>
+            @endforeach
+            @else
+            <tr>
+                <td colspan="10">Tiada rekod.</td>
+            </tr>
+        @endif
+          </tbody>
+        </table>
+        <span>
+            {{$temujanjis3->links() }}
+        </span>
+      </div>
+      </div>
+      <br><br>
+
+
       <h4>Klien (Tukar tarikh)</h4>
 
       <div class="card">
